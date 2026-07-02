@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flight-Hub Finder — Where Should Your Team Gather? | TeamBeam US</title>
+<meta name="description" content="Tell us where your team flies from and we'll show the best US cities to gather — ranked by total team travel, so your offsite minimizes cost, time, and hassle for everyone.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0D2137;--navy-2:#13304f;--blue:#1565C0;--blue-soft:#e7f0fb;--blue-line:#cfe0f5;--amber:#E8940F;--amber-soft:#fdf1dd;--green:#1d9d6c;--ink:#0D2137;--muted:#5b6b7d;--muted-2:#8395a6;--bg:#fff;--bg-2:#f6f8fb;--bg-3:#eef2f7;--line:#e3e9f0;--radius:18px;--radius-lg:28px;--shadow:0 1px 2px rgba(13,33,55,.04),0 12px 30px rgba(13,33,55,.06);--shadow-lg:0 30px 70px rgba(13,33,55,.16);--maxw:1180px;--display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Plus Jakarta Sans',system-ui,sans-serif;--mono:'Space Mono',ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;font-size:17px;overflow-x:hidden}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.1;letter-spacing:-.02em;font-weight:700;color:var(--navy)}
+h1{font-size:clamp(2.1rem,4.6vw,3.4rem);font-weight:800}h2{font-size:clamp(1.5rem,3vw,2.2rem)}h3{font-size:clamp(1.1rem,1.6vw,1.3rem)}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);font-weight:500}
+.lead{font-size:clamp(1.05rem,1.5vw,1.2rem);color:var(--muted);max-width:60ch}
+.btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--body);font-weight:600;font-size:1rem;padding:.85em 1.5em;border-radius:999px;cursor:pointer;border:1.5px solid transparent;transition:transform .25s,box-shadow .25s,background .2s,color .2s;white-space:nowrap}
+.btn .arw{transition:transform .25s}.btn:hover .arw{transform:translateX(4px)}
+.btn-amber{background:var(--amber);color:#3a2400;box-shadow:0 10px 24px rgba(232,148,15,.32)}.btn-amber:hover{transform:translateY(-2px)}
+.btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.32)}.btn-ghost-light:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.hdr{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.86);backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line)}
+.hdr-in{display:flex;align-items:center;gap:18px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--navy);letter-spacing:-.03em}.logo .mk{width:26px;height:26px;flex:none}
+.nav{display:flex;align-items:center;gap:4px;margin-left:14px}.nav a{font-size:.95rem;font-weight:500;color:var(--navy);padding:.5em .7em;border-radius:8px;display:flex;align-items:center;gap:4px}
+.nav a:hover,.nav a.active{background:var(--bg-3)}.nav a.active{color:var(--blue)}.nav .caret{font-size:.6rem;opacity:.5}
+.hdr-r{margin-left:auto;display:flex;align-items:center;gap:12px}
+.mkt{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:.4em .7em}.mkt b{color:var(--navy)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}.burger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:.3s}
+@media(max-width:1000px){.nav{display:none}.mkt{display:none}.burger{display:flex}.nav.open{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:flex-start;background:#fff;padding:14px 24px 22px;border-bottom:1px solid var(--line);gap:2px;box-shadow:var(--shadow)}.nav.open a{width:100%;padding:.8em .4em;border-bottom:1px solid var(--bg-3)}}
+.crumb{background:var(--bg-2);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--muted)}.crumb .wrap{padding:12px 24px}.crumb a{color:var(--muted)}.crumb a:hover{color:var(--blue)}.crumb b{color:var(--navy);font-weight:500}
+.phero{background:radial-gradient(120% 120% at 82% -10%,#1b3e63 0%,var(--navy) 48%,#091627 100%);color:#fff;overflow:hidden;padding:60px 0 64px;position:relative}
+.phero::before{content:"";position:absolute;inset:0;background:radial-gradient(42% 52% at 86% 14%,rgba(232,148,15,.18),transparent 60%),radial-gradient(34% 44% at 8% 92%,rgba(21,101,192,.3),transparent 60%);pointer-events:none}
+.beam-grid{position:absolute;inset:0;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(80% 70% at 50% 30%,#000 30%,transparent 75%)}
+.phero-in{position:relative;z-index:2;max-width:760px}.phero .ico{font-size:2.4rem;margin-bottom:10px}
+.phero .eyebrow{color:var(--amber);display:block;margin-bottom:14px}.phero h1{color:#fff}.phero h1 .hl{color:var(--amber)}
+.phero .sub{color:#c4d4e6;font-size:clamp(1.05rem,1.6vw,1.22rem);margin:16px 0 0;max-width:56ch}
+.sec{padding:64px 0}.alt{background:var(--bg-2)}
+.tool{max-width:880px;margin:0 auto}
+.toolcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:34px}
+@media(max-width:560px){.toolcard{padding:24px 20px}}
+.tstep{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:500}
+.toolcard h2{font-size:1.4rem;margin:8px 0 4px}.toolcard .th{color:var(--muted);font-size:.95rem;margin-bottom:22px}
+.addrow{display:flex;gap:10px;position:relative}
+.addrow input{flex:1;font-family:var(--body);font-size:1.02rem;border:1.5px solid var(--line);border-radius:12px;padding:13px 16px;transition:.2s}
+.addrow input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(21,101,192,.12)}
+.sugg{position:absolute;top:54px;left:0;right:96px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);z-index:20;max-height:240px;overflow-y:auto;display:none}
+.sugg.show{display:block}
+.sugg button{display:flex;justify-content:space-between;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--bg-3);padding:11px 15px;cursor:pointer;font-family:var(--body);font-size:.95rem;color:var(--navy)}
+.sugg button:hover{background:var(--blue-soft)}.sugg button .code{font-family:var(--mono);font-size:.78rem;color:var(--muted-2)}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px;min-height:10px}
+.chip{display:inline-flex;align-items:center;gap:9px;background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:999px;padding:.5em .5em .5em 1em;font-size:.92rem;font-weight:600;color:var(--navy)}
+.chip .wt{font-family:var(--mono);font-size:.72rem;color:var(--muted);font-weight:400}
+.chip .x{width:22px;height:22px;border-radius:50%;background:rgba(13,33,55,.08);border:0;cursor:pointer;color:var(--navy);font-size:.9rem;line-height:1;display:grid;place-items:center;transition:.18s}.chip .x:hover{background:#c0392b;color:#fff}
+.empty{color:var(--muted-2);font-size:.92rem;font-style:italic;margin-top:18px}
+.quickadd{margin-top:20px;padding-top:18px;border-top:1px solid var(--bg-3)}
+.quickadd .ql{font-size:.82rem;color:var(--muted-2);font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.qbtns{display:flex;flex-wrap:wrap;gap:8px}
+.qbtn{font-size:.86rem;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:.45em 1em;cursor:pointer;color:var(--navy);font-family:var(--body);transition:.18s}.qbtn:hover{border-color:var(--blue);color:var(--blue)}
+.gobar{margin-top:26px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.gobar .btn:disabled{opacity:.45;pointer-events:none}
+.gobar .cnt{font-size:.88rem;color:var(--muted)}
+/* results */
+.results{display:none;margin-top:30px;animation:fade .5s ease}.results.show{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.reslead{text-align:center;margin-bottom:22px}.reslead h3{font-size:1.3rem}.reslead p{color:var(--muted);font-size:.94rem;max-width:46ch;margin:6px auto 0}
+.hubs{display:flex;flex-direction:column;gap:13px}
+.hub{display:flex;align-items:center;gap:16px;border:1px solid var(--line);border-radius:var(--radius);padding:18px 22px;transition:.25s;position:relative;overflow:hidden}
+.hub:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.hub.win{border-color:var(--amber);background:var(--amber-soft);box-shadow:0 0 0 3px rgba(232,148,15,.12)}
+.hub .rank{font-family:var(--display);font-weight:800;font-size:1.5rem;color:var(--muted-2);width:34px;flex:none;text-align:center}
+.hub.win .rank{color:var(--amber)}
+.hub .hc{flex:1}.hub .hn{font-family:var(--display);font-weight:700;font-size:1.15rem;color:var(--navy);display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.hub .badge{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;background:var(--amber);color:#3a2400;border-radius:999px;padding:.25em .7em;font-weight:600}
+.hub .hmeta{font-size:.86rem;color:var(--muted);margin-top:3px}
+.hub .hbar{height:7px;background:var(--bg-3);border-radius:6px;overflow:hidden;margin-top:9px;max-width:320px}
+.hub .hbarfill{height:100%;background:linear-gradient(90deg,var(--blue),var(--amber));border-radius:6px;width:0;transition:width .8s cubic-bezier(.2,.7,.3,1)}
+.hub .hlink{flex:none;font-size:.86rem;color:var(--blue);font-weight:600;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.hub .hlink .arw{transition:transform .25s}.hub:hover .hlink .arw{transform:translateX(3px)}
+@media(max-width:600px){.hub{flex-wrap:wrap}.hub .hlink{width:100%;margin-top:6px}}
+.res-cta{margin-top:28px;background:linear-gradient(160deg,var(--navy),#091627);border-radius:var(--radius-lg);padding:32px;text-align:center;color:#fff}
+.res-cta h3{color:#fff;font-size:1.3rem;margin-bottom:8px}.res-cta p{color:#b9cadd;font-size:.95rem;max-width:46ch;margin:0 auto 20px}
+.res-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.disc{text-align:center;font-size:.84rem;color:var(--muted-2);margin-top:20px;max-width:64ch;margin-left:auto;margin-right:auto;line-height:1.55}
+.ft{background:#091627;color:#9fb6cd;padding:64px 0 30px}.ft-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:30px}
+.ft .logo{color:#fff;margin-bottom:14px}.ft .blurb{font-size:.92rem;color:#7e96ae;max-width:30ch}
+.ft .col h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;font-weight:500;margin-bottom:14px}
+.ft .col a{display:block;font-size:.92rem;color:#9fb6cd;padding:5px 0;transition:.2s}.ft .col a:hover{color:var(--amber)}
+.ft-contact{display:grid;grid-template-columns:repeat(3,auto);gap:14px 40px;margin-top:44px;padding-top:28px;border-top:1px solid rgba(255,255,255,.08);justify-content:start}
+.ft-contact .ci{display:flex;align-items:flex-start;gap:10px}.ft-contact .ci .ic{color:var(--amber);font-size:1rem;line-height:1.4;flex:none}
+.ft-contact .ci .lbl{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#5e7a96;display:block;margin-bottom:3px}
+.ft-contact .ci a{font-size:.92rem;color:#cdddee;line-height:1.45}.ft-contact .ci a:hover{color:var(--amber)}
+@media(max-width:780px){.ft-contact{grid-template-columns:1fr;gap:18px}}
+.ft-bottom{margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.sister{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:#7e96ae}.sister b{color:#cdddee}
+.ft-bottom .util{display:flex;gap:18px;flex-wrap:wrap}.ft-bottom .util a{font-size:.8rem;color:#7e96ae}.ft-bottom .util a:hover{color:#fff}
+@media(max-width:980px){.ft-top{grid-template-columns:1fr 1fr}}
+</style>
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="googlebot" content="index,follow">
+<meta name="author" content="TeamBeam Outings USA">
+<meta name="publisher" content="TeamBeam Outings USA">
+<meta name="theme-color" content="#0D2137">
+<meta name="apple-mobile-web-app-title" content="TeamBeam">
+<meta name="application-name" content="TeamBeam">
+<meta name="format-detection" content="telephone=no">
+<meta name="geo.region" content="US-CA">
+<meta name="geo.placename" content="San Francisco">
+<meta name="geo.position" content="37.7929099;-122.4046876">
+<meta name="ICBM" content="37.7929099, -122.4046876">
+<link rel="canonical" href="https://teambeam.us/resources-tools-flight-hub-finder">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="alternate" hreflang="en-us" href="https://teambeam.us/resources-tools-flight-hub-finder">
+<link rel="alternate" hreflang="x-default" href="https://teambeam.us/resources-tools-flight-hub-finder">
+<meta property="og:site_name" content="TeamBeam Outings USA">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Flight-Hub Finder — Where Should Your Team Gather? | TeamBeam US">
+<meta property="og:description" content="Tell us where your team flies from and we&#x27;ll show the best US cities to gather — ranked by total team travel, so your offsite minimizes cost, time, and hassle for everyone.">
+<meta property="og:url" content="https://teambeam.us/resources-tools-flight-hub-finder">
+<meta property="og:image" content="https://teambeam.us/og-cover.png">
+<meta property="og:image:secure_url" content="https://teambeam.us/og-cover.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TeamBeam Outings — Designed. Delivered. Measured.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Flight-Hub Finder — Where Should Your Team Gather? | TeamBeam US">
+<meta name="twitter:description" content="Tell us where your team flies from and we&#x27;ll show the best US cities to gather — ranked by total team travel, so your offsite minimizes cost, time, and hassle for everyone.">
+<meta name="twitter:image" content="https://teambeam.us/og-cover.png">
+<meta name="twitter:image:alt" content="TeamBeam Outings — team experiences, designed, delivered, measured">
+<meta name="twitter:site" content="@teambeamoutings">
+<meta name="twitter:creator" content="@teambeamoutings">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://teambeam.us/#org","name":"TeamBeam Outings USA","alternateName":"TeamBeam US","url":"https://teambeam.us/","logo":"https://teambeam.us/og-cover.png","image":"https://teambeam.us/og-cover.png","slogan":"Designed. Delivered. Measured.","description":"TeamBeam designs, delivers, and measures corporate team experiences, retreats, and everyday connection for distributed and in-person teams across the United States and worldwide.","email":"start@teambeam.us","telephone":"+1-415-404-9200","address":{"@type":"PostalAddress","streetAddress":"600 California St, 11th Floor","addressLocality":"San Francisco","addressRegion":"CA","postalCode":"94108","addressCountry":"US"},"areaServed":["US","Worldwide"],"sameAs":["https://www.linkedin.com/company/teambeam","https://www.instagram.com/teambeamoutings","https://x.com/teambeamoutings","https://www.youtube.com/@teambeamoutings","https://www.facebook.com/teambeamoutings","https://teambeam.in"],"contactPoint":[{"@type":"ContactPoint","email":"start@teambeam.us","telephone":"+1-415-404-9200","contactType":"sales","areaServed":"US","availableLanguage":"English"}]},{"@type":"WebSite","@id":"https://teambeam.us/#website","url":"https://teambeam.us/","name":"TeamBeam Outings USA","publisher":{"@id":"https://teambeam.us/#org"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://teambeam.us/resources-tools-flight-hub-finder#webpage","url":"https://teambeam.us/resources-tools-flight-hub-finder","name":"Flight-Hub Finder — Where Should Your Team Gather? | TeamBeam US","description":"Tell us where your team flies from and we'll show the best US cities to gather — ranked by total team travel, so your offsite minimizes cost, time, and hassle for everyone.","isPartOf":{"@id":"https://teambeam.us/#website"},"about":{"@id":"https://teambeam.us/#org"},"inLanguage":"en-US"},{"@type":"BreadcrumbList","@id":"https://teambeam.us/resources-tools-flight-hub-finder#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://teambeam.us/"},{"@type":"ListItem","position":2,"name":"Flight-Hub Finder","item":"https://teambeam.us/resources-tools-flight-hub-finder"}]}]}</script>
+
+<style id="tb-enhance">
+/* refined header menu + US/IN switch */
+.nav{gap:3px;margin-left:20px}
+.nav a{font-family:var(--body);font-size:.905rem;font-weight:600;color:var(--navy);padding:.55em .82em;border-radius:10px;letter-spacing:-.005em;transition:background .18s,color .18s}
+.nav a:hover{background:var(--blue-soft);color:var(--blue)}
+.nav a.active{color:var(--blue);background:var(--blue-soft)}
+.nav .caret{font-size:.5rem;opacity:.4;margin-left:2px;transform:translateY(-1px)}
+.mkt{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.06em;border:1px solid var(--line);border-radius:999px;padding:.32em .46em .32em .32em;background:#fff}
+.mkt .mkt-us{background:var(--navy);color:#fff;font-weight:700;padding:.28em .6em;border-radius:999px}
+.mkt .mkt-sep{color:var(--muted-2);opacity:.7;padding:0 1px}
+.mkt .mkt-in{color:var(--muted);font-weight:600;padding:.28em .55em;border-radius:999px;text-decoration:none;transition:.18s;cursor:pointer}
+.mkt .mkt-in:hover{background:var(--amber);color:#3a2400}
+.nav.open a{font-weight:600}.nav.open a:hover{background:var(--blue-soft)}
+
+/* ---- TeamBeam vibrancy + rebrand enhancement layer ---- */
+:root{
+  --c-amber:#E8940F;--c-sky:#1565C0;--c-teal:#0FA6A0;--c-coral:#F0603E;
+  --c-purple:#7C5CFC;--c-green:#1F9E6B;--c-pink:#E24A8B;--c-gold:#F2B807;
+}
+/* text logo */
+.logo{display:inline-flex!important;align-items:baseline!important;gap:7px!important;white-space:nowrap;font-family:var(--display)}
+.logo .tb-glyph{font-family:var(--display);font-weight:800;font-size:1.28rem;line-height:1;color:var(--amber)}
+.logo .tb-word{font-family:var(--display);font-weight:800;font-size:1.02rem;line-height:1;letter-spacing:.045em;color:var(--navy)}
+.logo .tb-word b{color:var(--amber);font-weight:800}
+.ft .logo{align-items:baseline!important}.ft .logo .tb-word{color:#fff}.ft .logo .tb-glyph{color:var(--amber)}
+/* comfortable minimum type sizes */
+.eyebrow{font-size:.78rem}
+.ft-contact .ci .lbl,.acard .cat,.hlc .go,.expc .go,.hub .badge,.match .why{font-size:.7rem}
+body{font-size:17.5px}
+/* rainbow hairline under sticky header */
+.hdr{position:relative}
+.hdr::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
+  background:linear-gradient(90deg,var(--c-amber),var(--c-coral),var(--c-pink),var(--c-purple),var(--c-sky),var(--c-teal),var(--c-green));
+  opacity:.9}
+/* multicolour accents on repeating cards (top bar + hover border) */
+.expc,.hlc,.tcard,.acard,.hub,.gcard,.ec{--acc:var(--c-sky)}
+.expc:nth-of-type(6n+1),.hlc:nth-of-type(6n+1),.tcard:nth-of-type(6n+1),.acard:nth-of-type(6n+1),.hub:nth-of-type(6n+1){--acc:var(--c-amber)}
+.expc:nth-of-type(6n+2),.hlc:nth-of-type(6n+2),.tcard:nth-of-type(6n+2),.acard:nth-of-type(6n+2),.hub:nth-of-type(6n+2){--acc:var(--c-teal)}
+.expc:nth-of-type(6n+3),.hlc:nth-of-type(6n+3),.tcard:nth-of-type(6n+3),.acard:nth-of-type(6n+3),.hub:nth-of-type(6n+3){--acc:var(--c-coral)}
+.expc:nth-of-type(6n+4),.hlc:nth-of-type(6n+4),.tcard:nth-of-type(6n+4),.acard:nth-of-type(6n+4),.hub:nth-of-type(6n+4){--acc:var(--c-purple)}
+.expc:nth-of-type(6n+5),.hlc:nth-of-type(6n+5),.tcard:nth-of-type(6n+5),.acard:nth-of-type(6n+5),.hub:nth-of-type(6n+5){--acc:var(--c-green)}
+.expc:nth-of-type(6n+6),.hlc:nth-of-type(6n+6),.tcard:nth-of-type(6n+6),.acard:nth-of-type(6n+6),.hub:nth-of-type(6n+6){--acc:var(--c-pink)}
+.expc::after,.hlc.link::after,.tcard::after,.acard::after{background:var(--acc)!important}
+.expc:hover,.hlc.link:hover,.tcard:hover,.acard:hover{border-color:var(--acc)!important;box-shadow:0 22px 50px -18px color-mix(in srgb,var(--acc) 45%,transparent)!important}
+.hlc .ic,.expc .ic,.acard .top .e{color:var(--acc)}
+/* colourful chips dots */
+.chip:nth-of-type(6n+1) .dot{background:var(--c-amber)}
+.chip:nth-of-type(6n+2) .dot{background:var(--c-teal)}
+.chip:nth-of-type(6n+3) .dot{background:var(--c-coral)}
+.chip:nth-of-type(6n+4) .dot{background:var(--c-purple)}
+.chip:nth-of-type(6n+5) .dot{background:var(--c-green)}
+.chip:nth-of-type(6n+6) .dot{background:var(--c-pink)}
+/* warmer, richer CTA glow */
+.finalcta{background:radial-gradient(120% 130% at 15% -20%,#1b3e63,var(--navy) 55%,#091627),radial-gradient(90% 120% at 100% 120%,rgba(232,148,15,.22),transparent 55%)!important;background-blend-mode:screen}
+/* footer social row */
+.ft-social{display:flex;gap:10px;margin-top:18px}
+.ft-social a{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#cdddee;transition:.2s}
+.ft-social a:hover{transform:translateY(-3px);border-color:transparent}
+.ft-social a.li:hover{background:#0A66C2;color:#fff}
+.ft-social a.ig:hover{background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF);color:#fff}
+.ft-social a.xt:hover{background:#000;color:#fff}
+.ft-social a.yt:hover{background:#FF0000;color:#fff}
+.ft-social a.fb:hover{background:#1877F2;color:#fff}
+.ft-social svg{width:17px;height:17px;fill:currentColor}
+/* contact map */
+.tb-map{margin:0 auto;max-width:1180px;padding:0 24px 8px}
+.tb-map .frame{border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.tb-map iframe{display:block;width:100%;height:420px;border:0}
+@media(max-width:560px){.tb-map iframe{height:320px}}
+</style>
+
+</head>
+<body>
+<header class="hdr"><div class="wrap hdr-in">
+<a href="/" class="logo" aria-label="TeamBeam home"><span class="tb-glyph" aria-hidden="true">Λ</span><span class="tb-word">TEAMBEAM <b>OUTINGS</b></span></a>
+<nav class="nav" id="nav"><a href="what-we-do">What We Do <span class="caret">&#9662;</span></a><a href="who-we-serve">Who We Serve <span class="caret">&#9662;</span></a><a href="destinations">Destinations <span class="caret">&#9662;</span></a><a href="why-teambeam">Why TeamBeam <span class="caret">&#9662;</span></a><a href="resources" class="active">Resources <span class="caret">&#9662;</span></a><a href="about">About</a></nav>
+<div class="hdr-r"><span class="mkt"><span class="mkt-us" aria-current="page">US</span><span class="mkt-sep">&#8596;</span><a class="mkt-in" href="https://www.teambeam.in/" aria-label="Switch to TeamBeam India">IN</a></span><a href="contact" class="btn btn-amber">Plan an experience <span class="arw">&rarr;</span></a><button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+</div></header>
+<div class="crumb"><div class="wrap"><a href="/">Home</a> &nbsp;/&nbsp; <a href="resources">Resources</a> &nbsp;/&nbsp; <a href="resources">Tools</a> &nbsp;/&nbsp; <b>Flight-Hub Finder</b></div></div>
+<section class="phero"><div class="beam-grid"></div><div class="wrap phero-in">
+<div class="ico">&#9992;&#65039;</div>
+<span class="eyebrow">Free Tool &middot; For distributed teams</span>
+<h1>Where should your team <span class="hl">gather?</span></h1>
+<p class="sub">When your people are scattered, the smartest destination is often the one everyone can reach most easily. Add the cities your team flies from and we'll rank the best US hubs by total team travel.</p>
+</div></section>
+
+<section class="sec"><div class="wrap tool">
+<div class="toolcard">
+<span class="tstep">Step 1</span>
+<h2>Where does your team fly from?</h2>
+<p class="th">Add each city (and roughly how many people are there, if you like). Start typing &mdash; we'll suggest matches.</p>
+
+<div class="addrow">
+<input type="text" id="cityin" placeholder="Type a city, e.g. Austin" autocomplete="off">
+<button class="btn btn-amber" id="addbtn" style="padding:.7em 1.2em">Add</button>
+<div class="sugg" id="sugg"></div>
+</div>
+
+<div class="chips" id="chips"></div>
+<p class="empty" id="empty">No cities added yet &mdash; add at least two to find your hub.</p>
+
+<div class="quickadd">
+<div class="ql">Or quick-add a common spread:</div>
+<div class="qbtns">
+<button class="qbtn" data-set="coastal">Bicoastal (SF + NYC)</button>
+<button class="qbtn" data-set="national">Nationwide (5 cities)</button>
+<button class="qbtn" data-set="tech">Tech hubs</button>
+<button class="qbtn" data-set="clear">Clear all</button>
+</div>
+</div>
+
+<div class="gobar">
+<button class="btn btn-amber" id="findbtn" disabled>Find the best hubs <span class="arw">&rarr;</span></button>
+<span class="cnt" id="cnt"></span>
+</div>
+
+<div class="results" id="results">
+<div class="reslead"><h3>&#9992;&#65039; Your best places to gather</h3><p>Ranked by total team travel &mdash; the top pick brings everyone together for the least combined distance.</p></div>
+<div class="hubs" id="hubs"></div>
+<div class="res-cta">
+<h3>Found your spot? Let's make it happen.</h3>
+<p>We'll source the venue around your hub, handle the travel and logistics, and design the experience &mdash; so the easy-to-reach choice is easy to run, too.</p>
+<div class="res-actions">
+<a href="contact" class="btn btn-amber">Plan it with us <span class="arw">&rarr;</span></a>
+<a href="offsites-retreats-sourcing-planning" class="btn btn-ghost-light">How sourcing works</a>
+</div>
+</div>
+<p class="disc">This is a planning estimate based on straight-line distance between major airports &mdash; a quick way to find your team's center of gravity, not a fare or itinerary quote. Actual routes, costs, and times vary. We factor in real flights, venues, and budget when we source for you.</p>
+</div>
+
+</div>
+</div></section>
+
+<footer class="ft"><div class="wrap"><div class="ft-top">
+<div><a href="/" class="logo"><span class="tb-glyph" aria-hidden="true">Λ</span><span class="tb-word">TEAMBEAM <b>OUTINGS</b></span></a>
+<p class="blurb">Designed. Delivered. Measured. The team experience your people don't dread &mdash; and your CFO can defend.</p>
+<p style="font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:#5e7a96;margin-top:14px">PEOPLE &middot; TEAMS &middot; ORGANISATIONS &middot; BEYOND</p></div>
+<div class="col"><h4>What We Do</h4><a href="team-experiences">Team Experiences</a><a href="impact-csr">Impact &amp; CSR</a><a href="development-facilitation">Development</a><a href="offsites-retreats">Offsites &amp; Retreats</a><a href="beam-occasions">Beam Occasions</a><a href="beam-journeys">Beam Journeys</a><a href="beam-platform">The Beam Platform</a><a href="self-serve-kits">Self-Serve &amp; Kits</a></div>
+<div class="col"><h4>Explore</h4><a href="who-we-serve">Who We Serve</a><a href="destinations">Destinations</a><a href="occasions">Holidays &amp; Key Dates</a><a href="why-teambeam">Why TeamBeam</a><a href="resources">Resources</a><a href="delivery-modes">Delivery Modes</a></div>
+<div class="col"><h4>Company</h4><a href="about">About</a><a href="careers">Careers</a><a href="partnerships">Partnerships</a><a href="volunteer">Volunteer</a><a href="contact">Contact</a></div>
+<div class="col"><h4>Markets</h4><a href="https://teambeam.in">TeamBeam India &rarr;</a><a href="destinations-worldwide">Worldwide</a><h4 style="margin-top:22px">Legal</h4><a href="privacy">Privacy</a><a href="terms">Terms</a><a href="accessibility">Accessibility</a></div>
+</div>
+<div class="ft-contact"><div class="ci"><span class="ic">&#9993;</span><div><span class="lbl">Talk to us</span><a href="mailto:start@teambeam.us">start@teambeam.us</a></div></div><div class="ci"><span class="ic">&#9743;</span><div><span class="lbl">Call</span><a href="tel:+14154049200">1 (415) 404-9200</a></div></div><div class="ci"><span class="ic">&#8982;</span><div><span class="lbl">Visit</span><a href="https://maps.app.goo.gl/5yr6vE8TrUUSVRmu7" target="_blank" rel="noopener">TeamBeam Outings USA<br>600 California St, 11th Floor<br>San Francisco, CA 94108</a></div></div></div>
+<div class="ft-bottom"><span class="sister"><b>TeamBeam US &middot; TeamBeam India</b> &mdash; one method, working worldwide.</span><div class="util"><a href="privacy">Privacy</a><a href="terms">Terms</a><a href="accessibility">Accessibility</a><span>&copy; 2026 TeamBeam</span></div></div>
+</div></footer>
+
+<script>
+(function(){
+var burger=document.getElementById('burger'),nav=document.getElementById('nav');
+burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);});
+nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);});});
+
+// city DB: name, code, lat, lng
+var CITIES=[
+ ['New York','NYC',40.71,-74.01],['Los Angeles','LAX',34.05,-118.24],['Chicago','ORD',41.88,-87.63],
+ ['San Francisco','SFO',37.77,-122.42],['Austin','AUS',30.27,-97.74],['Seattle','SEA',47.61,-122.33],
+ ['Denver','DEN',39.74,-104.99],['Boston','BOS',42.36,-71.06],['Atlanta','ATL',33.75,-84.39],
+ ['Washington, DC','DCA',38.91,-77.04],['Dallas','DFW',32.78,-96.80],['Houston','IAH',29.76,-95.37],
+ ['Miami','MIA',25.76,-80.19],['Phoenix','PHX',33.45,-112.07],['San Diego','SAN',32.72,-117.16],
+ ['Portland','PDX',45.51,-122.68],['Minneapolis','MSP',44.98,-93.27],['Detroit','DTW',42.33,-83.05],
+ ['Philadelphia','PHL',39.95,-75.17],['Nashville','BNA',36.16,-86.78],['New Orleans','MSY',29.95,-90.07],
+ ['Salt Lake City','SLC',40.76,-111.89],['Las Vegas','LAS',36.17,-115.14],['Charlotte','CLT',35.23,-80.84],
+ ['Raleigh','RDU',35.78,-78.64],['Pittsburgh','PIT',40.44,-79.996],['Kansas City','MCI',39.10,-94.58],
+ ['St. Louis','STL',38.63,-90.20],['Indianapolis','IND',39.77,-86.16],['Columbus','CMH',39.96,-82.99],
+ ['Tampa','TPA',27.95,-82.46],['Orlando','MCO',28.54,-81.38],['San Jose','SJC',37.34,-121.89],
+ ['Sacramento','SMF',38.58,-121.49],['Cleveland','CLE',41.50,-81.69],['Cincinnati','CVG',39.10,-84.51]
+];
+// candidate hubs (good airports / venue cities) with the page they link to
+var HUBS=[
+ ['Chicago','ORD',41.88,-87.63,'destinations-chicago.html'],['Denver','DEN',39.74,-104.99,'destinations-denver.html'],
+ ['Dallas','DFW',32.78,-96.80,'destinations-us-south.html'],['Atlanta','ATL',33.75,-84.39,'destinations-atlanta.html'],
+ ['Las Vegas','LAS',36.17,-115.14,'destinations-us-west-pacific.html'],['Nashville','BNA',36.16,-86.78,'destinations-us-south.html'],
+ ['Phoenix','PHX',33.45,-112.07,'destinations-us-southwest.html'],['Kansas City','MCI',39.10,-94.58,'destinations-us-midwest-great-lakes.html'],
+ ['New York','NYC',40.71,-74.01,'destinations-nyc.html'],['Los Angeles','LAX',34.05,-118.24,'destinations-la.html'],
+ ['San Francisco','SFO',37.77,-122.42,'destinations-sf-bay.html'],['Austin','AUS',30.27,-97.74,'destinations-austin.html'],
+ ['Minneapolis','MSP',44.98,-93.27,'destinations-us-midwest-great-lakes.html'],['Salt Lake City','SLC',40.76,-111.89,'destinations-us-mountain-west.html'],
+ ['Boston','BOS',42.36,-71.06,'destinations-boston.html'],['Seattle','SEA',47.61,-122.33,'destinations-seattle.html'],
+ ['Washington, DC','DCA',38.91,-77.04,'destinations-dc.html']
+];
+function dist(a,b,c,d){ // great-circle miles
+  var R=3959,toR=Math.PI/180;
+  var dLat=(c-a)*toR,dLng=(d-b)*toR;
+  var x=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(a*toR)*Math.cos(c*toR)*Math.sin(dLng/2)*Math.sin(dLng/2);
+  return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x));
+}
+var team=[]; // {name,code,lat,lng,w}
+var $=function(id){return document.getElementById(id);};
+var cityin=$('cityin'),sugg=$('sugg'),chips=$('chips'),empty=$('empty'),findbtn=$('findbtn'),cnt=$('cnt'),results=$('results');
+
+function renderChips(){
+  chips.innerHTML='';
+  team.forEach(function(t,i){
+    var c=document.createElement('span');c.className='chip';
+    c.innerHTML=t.name+' <span class="wt">'+t.code+'</span><button class="x" aria-label="Remove">&times;</button>';
+    c.querySelector('.x').addEventListener('click',function(){team.splice(i,1);renderChips();});
+    chips.appendChild(c);
+  });
+  empty.style.display=team.length?'none':'block';
+  findbtn.disabled=team.length<2;
+  cnt.textContent=team.length?(team.length+' '+(team.length===1?'city':'cities')+' added'):'';
+  results.classList.remove('show');
+}
+function addCity(c){
+  if(team.some(function(t){return t.code===c[1];}))return;
+  team.push({name:c[0],code:c[1],lat:c[2],lng:c[3]});
+  renderChips();
+}
+// autocomplete
+cityin.addEventListener('input',function(){
+  var v=cityin.value.trim().toLowerCase();
+  if(!v){sugg.classList.remove('show');return;}
+  var m=CITIES.filter(function(c){return c[0].toLowerCase().indexOf(v)>-1||c[1].toLowerCase().indexOf(v)>-1;}).slice(0,7);
+  if(!m.length){sugg.classList.remove('show');return;}
+  sugg.innerHTML='';
+  m.forEach(function(c){
+    var b=document.createElement('button');b.innerHTML='<span>'+c[0]+'</span><span class="code">'+c[1]+'</span>';
+    b.addEventListener('click',function(){addCity(c);cityin.value='';sugg.classList.remove('show');cityin.focus();});
+    sugg.appendChild(b);
+  });
+  sugg.classList.add('show');
+});
+function tryAdd(){
+  var v=cityin.value.trim().toLowerCase();
+  if(!v)return;
+  var c=CITIES.filter(function(x){return x[0].toLowerCase().indexOf(v)>-1||x[1].toLowerCase().indexOf(v)>-1;})[0];
+  if(c){addCity(c);cityin.value='';sugg.classList.remove('show');}
+}
+$('addbtn').addEventListener('click',tryAdd);
+cityin.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();tryAdd();}});
+document.addEventListener('click',function(e){if(!sugg.contains(e.target)&&e.target!==cityin)sugg.classList.remove('show');});
+
+// quick sets
+var SETS={
+ coastal:['SFO','NYC'],
+ national:['SFO','NYC','ORD','ATL','SEA'],
+ tech:['SFO','SEA','AUS','NYC','DEN']
+};
+document.querySelectorAll('.qbtn').forEach(function(b){
+  b.addEventListener('click',function(){
+    var s=b.dataset.set;
+    if(s==='clear'){team=[];renderChips();return;}
+    team=[];
+    SETS[s].forEach(function(code){var c=CITIES.filter(function(x){return x[1]===code;})[0];if(c)team.push({name:c[0],code:c[1],lat:c[2],lng:c[3]});});
+    renderChips();
+  });
+});
+
+findbtn.addEventListener('click',function(){
+  if(team.length<2)return;
+  // score each hub by total (and avg) distance from all team cities
+  var scored=HUBS.map(function(h){
+    var tot=0,max=0;
+    team.forEach(function(t){var d=dist(t.lat,t.lng,h[2],h[3]);tot+=d;if(d>max)max=d;});
+    return {name:h[0],code:h[1],link:h[4],tot:tot,avg:tot/team.length,max:max};
+  }).sort(function(a,b){return a.tot-b.tot;});
+  var top=scored.slice(0,5);
+  var worst=top[top.length-1].tot||1;
+  var hubsEl=$('hubs');hubsEl.innerHTML='';
+  top.forEach(function(h,i){
+    var win=i===0?' win':'';
+    var pct=Math.max(8,Math.round(h.tot/worst*100));
+    var el=document.createElement('div');el.className='hub'+win;
+    el.innerHTML='<div class="rank">'+(i+1)+'</div>'+
+      '<div class="hc"><div class="hn">'+h.name+(i===0?' <span class="badge">Best gather point</span>':'')+'</div>'+
+      '<div class="hmeta">~'+Math.round(h.avg).toLocaleString()+' mi avg &middot; '+Math.round(h.tot).toLocaleString()+' mi total team travel</div>'+
+      '<div class="hbar"><div class="hbarfill" data-w="'+pct+'"></div></div></div>'+
+      '<a class="hlink" href="'+h.link+'">Explore '+h.name+' <span class="arw">&rarr;</span></a>';
+    hubsEl.appendChild(el);
+  });
+  results.classList.add('show');
+  results.scrollIntoView({behavior:'smooth',block:'nearest'});
+  setTimeout(function(){document.querySelectorAll('.hbarfill').forEach(function(f){f.style.width=f.dataset.w+'%';});},120);
+});
+renderChips();
+})();
+</script>
+</body>
+</html>
