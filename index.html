@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corporate Team Experiences, Retreats & Team Building | TeamBeam US</title>
+<meta name="description" content="TeamBeam designs, delivers, and measures corporate team experiences, retreats, kickoffs, and everyday connection across the US and worldwide — for distributed and in-person teams. Designed. Delivered. Measured.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TEAMBEAM US — UNIFIED DESIGN SYSTEM  (shared across all pages)
+   Navy #0D2137 · Blue #1565C0 · Amber #E8940F · White
+   Syne (display) / DM Sans (body) / DM Mono (mono)
+   ============================================================ */
+:root{
+  --navy:#0D2137; --navy-2:#13304f; --navy-3:#1b3e63;
+  --blue:#1565C0; --blue-soft:#e7f0fb; --blue-line:#cfe0f5;
+  --amber:#E8940F; --amber-soft:#fdf1dd;
+  --ink:#0D2137; --muted:#5b6b7d; --muted-2:#8395a6;
+  --bg:#ffffff; --bg-2:#f6f8fb; --bg-3:#eef2f7;
+  --line:#e3e9f0; --white:#fff;
+  --radius:18px; --radius-sm:12px; --radius-lg:28px;
+  --shadow:0 1px 2px rgba(13,33,55,.04), 0 12px 30px rgba(13,33,55,.06);
+  --shadow-lg:0 30px 70px rgba(13,33,55,.16);
+  --maxw:1180px;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;
+  --body:'Plus Jakarta Sans',system-ui,sans-serif;
+  --mono:'Space Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;font-size:17px;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+section{position:relative}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* Type */
+h1,h2,h3,h4{font-family:var(--display);line-height:1.08;letter-spacing:-.02em;font-weight:700;color:var(--navy)}
+h1{font-size:clamp(2.3rem,5.2vw,4rem);font-weight:800}
+h2{font-size:clamp(1.8rem,3.6vw,2.85rem)}
+h3{font-size:clamp(1.15rem,1.7vw,1.4rem)}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);font-weight:500}
+.lead{font-size:clamp(1.05rem,1.5vw,1.25rem);color:var(--muted);max-width:62ch}
+.kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--body);font-weight:600;font-size:1rem;padding:.85em 1.5em;border-radius:999px;cursor:pointer;border:1.5px solid transparent;transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s,background .2s,color .2s;white-space:nowrap}
+.btn .arw{transition:transform .25s}
+.btn:hover .arw{transform:translateX(4px)}
+.btn-amber{background:var(--amber);color:#3a2400;box-shadow:0 10px 24px rgba(232,148,15,.32)}
+.btn-amber:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(232,148,15,.42)}
+.btn-ghost{background:transparent;color:var(--navy);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--navy);transform:translateY(-2px)}
+.btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.32)}
+.btn-ghost-light:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.btn-blue{background:var(--blue);color:#fff;box-shadow:0 10px 24px rgba(21,101,192,.28)}
+.btn-blue:hover{transform:translateY(-2px)}
+
+/* ---------- HEADER ---------- */
+.hdr{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.82);backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line)}
+.hdr-in{display:flex;align-items:center;gap:18px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--navy);letter-spacing:-.03em}
+.logo .mk{width:26px;height:26px;flex:none}
+.nav{display:flex;align-items:center;gap:4px;margin-left:14px}
+.nav a{font-size:.95rem;font-weight:500;color:var(--navy);padding:.5em .7em;border-radius:8px;display:flex;align-items:center;gap:4px}
+.nav a:hover{background:var(--bg-3)}
+.nav .caret{font-size:.6rem;opacity:.5}
+.hdr-r{margin-left:auto;display:flex;align-items:center;gap:12px}
+.mkt{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:.4em .7em}
+.mkt b{color:var(--navy)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:.3s}
+@media(max-width:1000px){
+  .nav{display:none}
+  .mkt{display:none}
+  .burger{display:flex}
+  .nav.open{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:flex-start;background:#fff;padding:14px 24px 22px;border-bottom:1px solid var(--line);gap:2px;box-shadow:var(--shadow)}
+  .nav.open a{width:100%;padding:.8em .4em;border-bottom:1px solid var(--bg-3)}
+}
+
+/* ---------- HERO ---------- */
+.hero{background:radial-gradient(120% 120% at 80% -10%,#1b3e63 0%,var(--navy) 46%,#091627 100%);color:#fff;overflow:hidden;padding:84px 0 96px}
+.hero::before{content:"";position:absolute;inset:0;background:
+   radial-gradient(40% 50% at 88% 18%,rgba(232,148,15,.20),transparent 60%),
+   radial-gradient(34% 44% at 12% 88%,rgba(21,101,192,.34),transparent 60%);pointer-events:none}
+.beam-grid{position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:64px 64px;mask-image:radial-gradient(80% 70% at 50% 30%,#000 30%,transparent 75%)}
+.hero-in{position:relative;z-index:2;max-width:920px}
+.hero .eyebrow{color:var(--amber);margin-bottom:18px;display:block}
+.hero h1{color:#fff;max-width:18ch}
+.hero h1 .hl{color:var(--amber)}
+.hero .sub{color:#c4d4e6;font-size:clamp(1.05rem,1.6vw,1.3rem);margin:22px 0 32px;max-width:60ch}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.promise{margin-top:40px;display:inline-flex;gap:0;font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;color:#9fb6cd;flex-wrap:wrap}
+.promise b{color:#fff}
+.promise span{padding:0 14px;border-right:1px solid rgba(255,255,255,.18)}
+.promise span:last-child{border:0}
+
+/* ---------- TRUST BAR ---------- */
+.trust{background:var(--navy);color:#9fb6cd;padding:22px 0;border-top:1px solid rgba(255,255,255,.06)}
+.trust-in{display:flex;align-items:center;gap:26px;flex-wrap:wrap;justify-content:space-between}
+.trust .lbl{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+.logos{display:flex;gap:30px;align-items:center;flex-wrap:wrap;opacity:.85}
+.logos span{font-family:var(--display);font-weight:700;font-size:1.05rem;color:#cdddee;letter-spacing:-.02em}
+.rate{font-family:var(--mono);font-size:.8rem;color:#fff;display:flex;align-items:center;gap:8px}
+.rate .stars{color:var(--amber)}
+
+/* ---------- SECTION SHELL ---------- */
+.sec{padding:84px 0}
+.sec-head{max-width:720px;margin-bottom:48px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head .eyebrow{display:block;margin-bottom:14px}
+.sec-head p{margin-top:16px}
+.alt{background:var(--bg-2)}
+.dark{background:var(--navy);color:#fff}
+.dark h2,.dark h3{color:#fff}
+.dark .lead{color:#b9cadd}
+
+/* ---------- PROBLEM / EDITORIAL ---------- */
+.editorial{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center}
+.editorial .body p{font-size:1.12rem;color:var(--muted);margin-top:16px}
+.editorial .body p strong{color:var(--navy)}
+.pull{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,2.6vw,2.1rem);color:var(--navy);line-height:1.18;letter-spacing:-.02em}
+.pull .amber{color:var(--amber)}
+.brandline{margin-top:18px;font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;color:var(--blue);text-transform:uppercase}
+.flip{background:linear-gradient(160deg,#fff,var(--blue-soft));border:1px solid var(--blue-line);border-radius:var(--radius-lg);padding:34px;box-shadow:var(--shadow)}
+.flip .row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px dashed var(--blue-line)}
+.flip .row:last-child{border:0}
+.flip .n{font-family:var(--mono);font-size:.72rem;background:var(--navy);color:#fff;width:26px;height:26px;border-radius:7px;display:grid;place-items:center;flex:none;margin-top:2px}
+.flip .row b{font-family:var(--display);color:var(--navy);font-size:1.02rem}
+.flip .row p{color:var(--muted);font-size:.95rem;margin-top:2px}
+
+/* ---------- SELF-LOCATE ---------- */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tile{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;display:flex;flex-direction:column;gap:10px;transition:.25s;min-height:130px}
+.tile:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:var(--shadow)}
+.tile .ic{width:38px;height:38px;border-radius:10px;background:var(--blue-soft);display:grid;place-items:center;color:var(--blue);font-size:1.1rem}
+.tile b{font-family:var(--display);font-size:1.02rem;color:var(--navy)}
+.tile .go{margin-top:auto;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--blue);text-transform:uppercase}
+.tile.wide{grid-column:span 4;flex-direction:row;align-items:center;justify-content:space-between;min-height:0;background:var(--navy);color:#fff;border:0}
+.tile.wide b{color:#fff}
+.tile.wide .go{color:var(--amber);margin:0}
+
+/* ---------- PILLAR CARDS ---------- */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;transition:.28s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.card::after{content:"";position:absolute;left:0;top:0;height:4px;width:0;background:var(--amber);transition:width .35s}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:transparent}
+.card:hover::after{width:100%}
+.card .ic{width:44px;height:44px;border-radius:12px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;margin-bottom:18px;font-size:1.2rem}
+.card h3{margin-bottom:8px}
+.card p{color:var(--muted);font-size:.96rem;flex:1}
+.card .go{margin-top:16px;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+
+/* ---------- METHOD STEPPER ---------- */
+.method{display:grid;grid-template-columns:repeat(5,1fr);gap:0;counter-reset:step;margin-top:8px}
+.step{padding:26px 22px;border-left:1px solid rgba(255,255,255,.12);position:relative}
+.step:first-child{border-left:0}
+.step .num{font-family:var(--mono);font-size:.72rem;color:var(--amber);letter-spacing:.1em}
+.step h3{font-size:1.25rem;margin:10px 0 8px}
+.step p{color:#b9cadd;font-size:.92rem}
+.step .dot{position:absolute;top:-7px;left:22px;width:12px;height:12px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 5px rgba(232,148,15,.18)}
+.method-bar{height:2px;background:linear-gradient(90deg,var(--amber),var(--blue));margin:0 0 0;border-radius:2px;opacity:.5}
+
+/* ---------- MEASUREMENT SPLIT ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.split .body .chip{display:inline-flex;align-items:center;gap:8px;background:var(--blue-soft);color:var(--blue);font-size:.82rem;font-weight:600;padding:.5em 1em;border-radius:999px;margin-top:22px}
+.split .body .chip::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--blue)}
+.dims{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.dims span{font-family:var(--mono);font-size:.74rem;background:#fff;border:1px solid var(--line);color:var(--navy);padding:.4em .8em;border-radius:999px}
+.radar-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px;box-shadow:var(--shadow);text-align:center}
+.radar-card .cap{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.radar-card .scoreline{display:flex;justify-content:center;gap:28px;margin-top:18px}
+.radar-card .scoreline div{text-align:center}
+.radar-card .scoreline .v{font-family:var(--display);font-size:1.9rem;font-weight:800;color:var(--navy)}
+.radar-card .scoreline .v.after{color:var(--amber)}
+.radar-card .scoreline .l{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2)}
+
+/* ---------- CULTURE BAND ---------- */
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mini{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:.25s}
+.mini:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.mini .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.mini h3{margin:8px 0}
+.mini p{color:var(--muted);font-size:.95rem}
+
+/* ---------- WHO WE SERVE TABS ---------- */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.tab{font-family:var(--body);font-weight:600;font-size:.92rem;padding:.6em 1.2em;border-radius:999px;border:1.5px solid var(--line);background:#fff;cursor:pointer;transition:.2s;color:var(--navy)}
+.tab[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tabpanel{display:none;flex-wrap:wrap;gap:10px}
+.tabpanel.active{display:flex}
+.chip-link{font-size:.92rem;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.55em 1.1em;transition:.2s;color:var(--navy)}
+.chip-link:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+
+/* ---------- RESULTS ---------- */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:34px}
+.metric{background:var(--navy-2);border-radius:var(--radius);padding:26px;text-align:center}
+.metric .v{font-family:var(--display);font-weight:800;font-size:clamp(2rem,3.2vw,2.7rem);color:var(--amber);line-height:1}
+.metric .l{color:#b9cadd;font-size:.86rem;margin-top:8px}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.quote{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:26px}
+.quote p{color:#dce7f2;font-size:1rem;line-height:1.55}
+.quote .who{margin-top:16px;font-family:var(--mono);font-size:.74rem;color:#8fb0d2;letter-spacing:.04em}
+.quote .mk{color:var(--amber);font-family:var(--display);font-size:2rem;line-height:0;display:block;height:14px}
+
+/* ---------- 3-CARD / 2-CARD teasers ---------- */
+.teaser3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.teaser2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tool{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:.25s}
+.tool:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--blue)}
+.tool .tg{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.tool h3{margin:8px 0 6px}
+.tool p{color:var(--muted);font-size:.92rem}
+.bigcard{background:linear-gradient(160deg,var(--navy),var(--navy-2));color:#fff;border-radius:var(--radius-lg);padding:34px;display:flex;flex-direction:column;gap:10px}
+.bigcard h3{color:#fff}
+.bigcard p{color:#b9cadd}
+.bigcard .btn{margin-top:auto;align-self:flex-start}
+
+/* ---------- CROSS-MARKET ---------- */
+.xmkt{background:var(--bg-3);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.xmkt-in{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:space-between;padding:24px 0}
+.xmkt p{color:var(--muted);max-width:64ch}
+.xmkt b{color:var(--navy);font-family:var(--display)}
+
+/* ---------- FINAL CTA ---------- */
+.finalcta{background:radial-gradient(120% 130% at 50% -20%,#1b3e63,var(--navy) 60%,#091627);color:#fff;text-align:center;padding:96px 0}
+.finalcta h2{color:#fff;max-width:18ch;margin:0 auto 26px}
+.finalcta h2 .hl{color:var(--amber)}
+
+/* ---------- FOOTER ---------- */
+.ft{background:#091627;color:#9fb6cd;padding:64px 0 30px}
+.ft-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:30px}
+.ft .logo{color:#fff;margin-bottom:14px}
+.ft .blurb{font-size:.92rem;color:#7e96ae;max-width:30ch}
+.ft .promise-ft{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:#5e7a96}
+.ft .col h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;font-weight:500;margin-bottom:14px}
+.ft .col a{display:block;font-size:.92rem;color:#9fb6cd;padding:5px 0;transition:.2s}
+.ft .col a:hover{color:var(--amber)}
+.ft-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.sister{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:#7e96ae}
+.sister b{color:#cdddee}
+.ft-bottom .util{display:flex;gap:18px;flex-wrap:wrap}
+.ft-bottom .util a{font-size:.8rem;color:#7e96ae}
+.ft-bottom .util a:hover{color:#fff}
+
+/* ---------- REVEAL ANIM ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.btn,.card,.tile{transition:none}}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:980px){
+  .editorial,.split{grid-template-columns:1fr;gap:34px}
+  .cards,.tiles{grid-template-columns:repeat(2,1fr)}
+  .tile.wide{grid-column:span 2}
+  .method{grid-template-columns:repeat(2,1fr)}
+  .step{border-left:0;border-top:1px solid rgba(255,255,255,.12)}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .tri,.teaser3,.quotes{grid-template-columns:1fr}
+  .teaser2{grid-template-columns:1fr}
+  .ft-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .sec{padding:60px 0}
+  .cards,.tiles{grid-template-columns:1fr}
+  .tile.wide{grid-column:span 1}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .hero{padding:60px 0 70px}
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .btn{justify-content:center}
+}
+
+/* ---------- FOOTER CONTACT STRIP ---------- */
+.ft-contact{display:grid;grid-template-columns:repeat(3,auto);gap:14px 40px;margin-top:44px;padding-top:28px;border-top:1px solid rgba(255,255,255,.08);justify-content:start}
+.ft-contact .ci{display:flex;align-items:flex-start;gap:10px}
+.ft-contact .ci .ic{color:var(--amber);font-size:1rem;line-height:1.4;flex:none}
+.ft-contact .ci .lbl{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#5e7a96;display:block;margin-bottom:3px}
+.ft-contact .ci a,.ft-contact .ci span.val{font-size:.92rem;color:#cdddee;line-height:1.45}
+.ft-contact .ci a:hover{color:var(--amber)}
+@media(max-width:780px){.ft-contact{grid-template-columns:1fr;gap:18px}}
+
+</style>
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="googlebot" content="index,follow">
+<meta name="author" content="TeamBeam Outings USA">
+<meta name="publisher" content="TeamBeam Outings USA">
+<meta name="theme-color" content="#0D2137">
+<meta name="apple-mobile-web-app-title" content="TeamBeam">
+<meta name="application-name" content="TeamBeam">
+<meta name="format-detection" content="telephone=no">
+<meta name="geo.region" content="US-CA">
+<meta name="geo.placename" content="San Francisco">
+<meta name="geo.position" content="37.7929099;-122.4046876">
+<meta name="ICBM" content="37.7929099, -122.4046876">
+<link rel="canonical" href="https://teambeam.us/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="alternate" hreflang="en-us" href="https://teambeam.us/">
+<link rel="alternate" hreflang="x-default" href="https://teambeam.us/">
+<meta property="og:site_name" content="TeamBeam Outings USA">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Corporate Team Experiences, Retreats &amp; Team Building | TeamBeam US">
+<meta property="og:description" content="TeamBeam designs, delivers, and measures corporate team experiences, retreats, kickoffs, and everyday connection across the US and worldwide — for distributed and in-person teams. Designed. Delivered. Measured.">
+<meta property="og:url" content="https://teambeam.us/">
+<meta property="og:image" content="https://teambeam.us/og-cover.png">
+<meta property="og:image:secure_url" content="https://teambeam.us/og-cover.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TeamBeam Outings — Designed. Delivered. Measured.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Corporate Team Experiences, Retreats &amp; Team Building | TeamBeam US">
+<meta name="twitter:description" content="TeamBeam designs, delivers, and measures corporate team experiences, retreats, kickoffs, and everyday connection across the US and worldwide — for distributed and in-person teams. Designed. Delivered. Measured.">
+<meta name="twitter:image" content="https://teambeam.us/og-cover.png">
+<meta name="twitter:image:alt" content="TeamBeam Outings — team experiences, designed, delivered, measured">
+<meta name="twitter:site" content="@teambeamoutings">
+<meta name="twitter:creator" content="@teambeamoutings">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://teambeam.us/#org","name":"TeamBeam Outings USA","alternateName":"TeamBeam US","url":"https://teambeam.us/","logo":"https://teambeam.us/og-cover.png","image":"https://teambeam.us/og-cover.png","slogan":"Designed. Delivered. Measured.","description":"TeamBeam designs, delivers, and measures corporate team experiences, retreats, and everyday connection for distributed and in-person teams across the United States and worldwide.","email":"start@teambeam.us","telephone":"+1-415-404-9200","address":{"@type":"PostalAddress","streetAddress":"600 California St, 11th Floor","addressLocality":"San Francisco","addressRegion":"CA","postalCode":"94108","addressCountry":"US"},"areaServed":["US","Worldwide"],"sameAs":["https://www.linkedin.com/company/teambeam","https://www.instagram.com/teambeamoutings","https://x.com/teambeamoutings","https://www.youtube.com/@teambeamoutings","https://www.facebook.com/teambeamoutings","https://teambeam.in"],"contactPoint":[{"@type":"ContactPoint","email":"start@teambeam.us","telephone":"+1-415-404-9200","contactType":"sales","areaServed":"US","availableLanguage":"English"}]},{"@type":"WebSite","@id":"https://teambeam.us/#website","url":"https://teambeam.us/","name":"TeamBeam Outings USA","publisher":{"@id":"https://teambeam.us/#org"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://teambeam.us/#webpage","url":"https://teambeam.us/","name":"Corporate Team Experiences, Retreats & Team Building | TeamBeam US","description":"TeamBeam designs, delivers, and measures corporate team experiences, retreats, kickoffs, and everyday connection across the US and worldwide — for distributed and in-person teams. Designed. Delivered. Measured.","isPartOf":{"@id":"https://teambeam.us/#website"},"about":{"@id":"https://teambeam.us/#org"},"inLanguage":"en-US"},{"@type":"BreadcrumbList","@id":"https://teambeam.us/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://teambeam.us/"}]},{"@type":"LocalBusiness","@id":"https://teambeam.us/#local","name":"TeamBeam Outings USA","image":"https://teambeam.us/og-cover.png","url":"https://teambeam.us/","telephone":"+1-415-404-9200","email":"start@teambeam.us","priceRange":"$$$","address":{"@type":"PostalAddress","streetAddress":"600 California St, 11th Floor","addressLocality":"San Francisco","addressRegion":"CA","postalCode":"94108","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":37.7929099,"longitude":-122.4046876},"hasMap":"https://maps.app.goo.gl/SmyZJ6Cgd4xwe4wFA","parentOrganization":{"@id":"https://teambeam.us/#org"}}]}</script>
+
+<style id="tb-enhance">
+/* refined header menu + US/IN switch */
+.nav{gap:3px;margin-left:20px}
+.nav a{font-family:var(--body);font-size:.905rem;font-weight:600;color:var(--navy);padding:.55em .82em;border-radius:10px;letter-spacing:-.005em;transition:background .18s,color .18s}
+.nav a:hover{background:var(--blue-soft);color:var(--blue)}
+.nav a.active{color:var(--blue);background:var(--blue-soft)}
+.nav .caret{font-size:.5rem;opacity:.4;margin-left:2px;transform:translateY(-1px)}
+.mkt{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.06em;border:1px solid var(--line);border-radius:999px;padding:.32em .46em .32em .32em;background:#fff}
+.mkt .mkt-us{background:var(--navy);color:#fff;font-weight:700;padding:.28em .6em;border-radius:999px}
+.mkt .mkt-sep{color:var(--muted-2);opacity:.7;padding:0 1px}
+.mkt .mkt-in{color:var(--muted);font-weight:600;padding:.28em .55em;border-radius:999px;text-decoration:none;transition:.18s;cursor:pointer}
+.mkt .mkt-in:hover{background:var(--amber);color:#3a2400}
+.nav.open a{font-weight:600}.nav.open a:hover{background:var(--blue-soft)}
+
+/* ---- TeamBeam vibrancy + rebrand enhancement layer ---- */
+:root{
+  --c-amber:#E8940F;--c-sky:#1565C0;--c-teal:#0FA6A0;--c-coral:#F0603E;
+  --c-purple:#7C5CFC;--c-green:#1F9E6B;--c-pink:#E24A8B;--c-gold:#F2B807;
+}
+/* text logo */
+.logo{display:inline-flex!important;align-items:baseline!important;gap:7px!important;white-space:nowrap;font-family:var(--display)}
+.logo .tb-glyph{font-family:var(--display);font-weight:800;font-size:1.28rem;line-height:1;color:var(--amber)}
+.logo .tb-word{font-family:var(--display);font-weight:800;font-size:1.02rem;line-height:1;letter-spacing:.045em;color:var(--navy)}
+.logo .tb-word b{color:var(--amber);font-weight:800}
+.ft .logo{align-items:baseline!important}.ft .logo .tb-word{color:#fff}.ft .logo .tb-glyph{color:var(--amber)}
+/* comfortable minimum type sizes */
+.eyebrow{font-size:.78rem}
+.ft-contact .ci .lbl,.acard .cat,.hlc .go,.expc .go,.hub .badge,.match .why{font-size:.7rem}
+body{font-size:17.5px}
+/* rainbow hairline under sticky header */
+.hdr{position:relative}
+.hdr::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
+  background:linear-gradient(90deg,var(--c-amber),var(--c-coral),var(--c-pink),var(--c-purple),var(--c-sky),var(--c-teal),var(--c-green));
+  opacity:.9}
+/* multicolour accents on repeating cards (top bar + hover border) */
+.expc,.hlc,.tcard,.acard,.hub,.gcard,.ec{--acc:var(--c-sky)}
+.expc:nth-of-type(6n+1),.hlc:nth-of-type(6n+1),.tcard:nth-of-type(6n+1),.acard:nth-of-type(6n+1),.hub:nth-of-type(6n+1){--acc:var(--c-amber)}
+.expc:nth-of-type(6n+2),.hlc:nth-of-type(6n+2),.tcard:nth-of-type(6n+2),.acard:nth-of-type(6n+2),.hub:nth-of-type(6n+2){--acc:var(--c-teal)}
+.expc:nth-of-type(6n+3),.hlc:nth-of-type(6n+3),.tcard:nth-of-type(6n+3),.acard:nth-of-type(6n+3),.hub:nth-of-type(6n+3){--acc:var(--c-coral)}
+.expc:nth-of-type(6n+4),.hlc:nth-of-type(6n+4),.tcard:nth-of-type(6n+4),.acard:nth-of-type(6n+4),.hub:nth-of-type(6n+4){--acc:var(--c-purple)}
+.expc:nth-of-type(6n+5),.hlc:nth-of-type(6n+5),.tcard:nth-of-type(6n+5),.acard:nth-of-type(6n+5),.hub:nth-of-type(6n+5){--acc:var(--c-green)}
+.expc:nth-of-type(6n+6),.hlc:nth-of-type(6n+6),.tcard:nth-of-type(6n+6),.acard:nth-of-type(6n+6),.hub:nth-of-type(6n+6){--acc:var(--c-pink)}
+.expc::after,.hlc.link::after,.tcard::after,.acard::after{background:var(--acc)!important}
+.expc:hover,.hlc.link:hover,.tcard:hover,.acard:hover{border-color:var(--acc)!important;box-shadow:0 22px 50px -18px color-mix(in srgb,var(--acc) 45%,transparent)!important}
+.hlc .ic,.expc .ic,.acard .top .e{color:var(--acc)}
+/* colourful chips dots */
+.chip:nth-of-type(6n+1) .dot{background:var(--c-amber)}
+.chip:nth-of-type(6n+2) .dot{background:var(--c-teal)}
+.chip:nth-of-type(6n+3) .dot{background:var(--c-coral)}
+.chip:nth-of-type(6n+4) .dot{background:var(--c-purple)}
+.chip:nth-of-type(6n+5) .dot{background:var(--c-green)}
+.chip:nth-of-type(6n+6) .dot{background:var(--c-pink)}
+/* warmer, richer CTA glow */
+.finalcta{background:radial-gradient(120% 130% at 15% -20%,#1b3e63,var(--navy) 55%,#091627),radial-gradient(90% 120% at 100% 120%,rgba(232,148,15,.22),transparent 55%)!important;background-blend-mode:screen}
+/* footer social row */
+.ft-social{display:flex;gap:10px;margin-top:18px}
+.ft-social a{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#cdddee;transition:.2s}
+.ft-social a:hover{transform:translateY(-3px);border-color:transparent}
+.ft-social a.li:hover{background:#0A66C2;color:#fff}
+.ft-social a.ig:hover{background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF);color:#fff}
+.ft-social a.xt:hover{background:#000;color:#fff}
+.ft-social a.yt:hover{background:#FF0000;color:#fff}
+.ft-social a.fb:hover{background:#1877F2;color:#fff}
+.ft-social svg{width:17px;height:17px;fill:currentColor}
+/* contact map */
+.tb-map{margin:0 auto;max-width:1180px;padding:0 24px 8px}
+.tb-map .frame{border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.tb-map iframe{display:block;width:100%;height:420px;border:0}
+@media(max-width:560px){.tb-map iframe{height:320px}}
+</style>
+
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a href="/" class="logo" aria-label="TeamBeam home">
+      <span class="tb-glyph" aria-hidden="true">Λ</span><span class="tb-word">TEAMBEAM <b>OUTINGS</b></span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="what-we-do">What We Do <span class="caret">▾</span></a>
+      <a href="who-we-serve">Who We Serve <span class="caret">▾</span></a>
+      <a href="destinations">Destinations <span class="caret">▾</span></a>
+      <a href="why-teambeam">Why TeamBeam <span class="caret">▾</span></a>
+      <a href="resources">Resources <span class="caret">▾</span></a>
+      <a href="about">About</a>
+    </nav>
+    <div class="hdr-r">
+      <span class="mkt"><span class="mkt-us" aria-current="page">US</span><span class="mkt-sep">↔</span><a class="mkt-in" href="https://www.teambeam.in/" aria-label="Switch to TeamBeam India">IN</a></span>
+      <a href="contact" class="btn btn-amber">Plan an experience <span class="arw">→</span></a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="beam-grid"></div>
+  <div class="wrap hero-in rv">
+    <span class="eyebrow">Designed · Delivered · Measured</span>
+    <h1>The team experience your people don't dread — and your <span class="hl">CFO can defend.</span></h1>
+    <p class="sub">TeamBeam designs, delivers, and measures the moments your team comes together — retreats, kickoffs, all-hands, and everyday connection — across the US and worldwide.</p>
+    <div class="hero-cta">
+      <a href="contact" class="btn btn-amber">Plan an experience <span class="arw">→</span></a>
+      <a href="#how" class="btn btn-ghost-light">See how it works ↓</a>
+    </div>
+    <div class="promise">
+      <span><b>Designed.</b></span><span><b>Delivered.</b></span><span><b>Measured.</b></span><span>The offsite that's actually worth it.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST BAR ================= -->
+<section class="trust">
+  <div class="wrap trust-in">
+    <span class="lbl">Trusted by teams across the US &amp; worldwide</span>
+    <div class="logos">
+      <span>Northwind</span><span>Vanto</span><span>Helio</span><span>Brightlane</span><span>Corex</span>
+    </div>
+    <span class="rate"><span class="stars">★★★★★</span> One method. Every gathering. Measured every time.</span>
+  </div>
+</section>
+
+<!-- ================= PROBLEM → IDEA ================= -->
+<section class="sec" id="how">
+  <div class="wrap editorial rv">
+    <div class="body">
+      <span class="eyebrow">The problem we fix</span>
+      <h2 style="margin-top:14px">Why do most offsites get forgotten by Monday?</h2>
+      <p>Because they start with <strong>"what should we book?"</strong> instead of <strong>"what does this team actually need?"</strong> You get a fun day, a few photos, and no change.</p>
+      <p>We flip it: read the team first, design the experience to what we find, run every detail so your people can actually be present, then show you what moved.</p>
+      <div class="pull" style="margin-top:26px"><span class="amber">Designed.</span> Delivered. Measured.</div>
+      <div class="brandline">People · Teams · Organisations · Beyond</div>
+    </div>
+    <div class="flip">
+      <div class="row"><span class="n">01</span><div><b>Scan, don't guess</b><p>We read your team across eight dimensions before we plan anything.</p></div></div>
+      <div class="row"><span class="n">02</span><div><b>Design to the gap</b><p>Every activity targets a real need — not a catalogue default.</p></div></div>
+      <div class="row"><span class="n">03</span><div><b>Run it for you</b><p>One accountable lead handles the day so you can be in the room.</p></div></div>
+      <div class="row"><span class="n">04</span><div><b>Prove the shift</b><p>An Impact Report your finance and leadership teams respect.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SELF-LOCATE ================= -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Start here</span>
+      <h2>What are you here to solve?</h2>
+      <p class="lead">Tap the closest fit — we'll take you straight to it.</p>
+    </div>
+    <div class="tiles rv">
+      <a class="tile" href="delivery-modes-online"><span class="ic">🌐</span><b>Bring a distributed team together</b><span class="go">Online &amp; hybrid →</span></a>
+      <a class="tile" href="offsites-retreats"><span class="ic">🏔</span><b>Plan a retreat or offsite</b><span class="go">Offsites &amp; retreats →</span></a>
+      <a class="tile" href="high-energy-scale"><span class="ic">🎤</span><b>Run a kickoff or all-hands</b><span class="go">High-energy &amp; scale →</span></a>
+      <a class="tile" href="development-facilitation"><span class="ic">🎯</span><b>Develop leaders &amp; teams</b><span class="go">Development →</span></a>
+      <a class="tile" href="beam-occasions"><span class="ic">🎉</span><b>Celebrate a moment or holiday</b><span class="go">Beam Occasions →</span></a>
+      <a class="tile" href="impact-csr"><span class="ic">🤝</span><b>Give back as a team</b><span class="go">Impact &amp; CSR →</span></a>
+      <a class="tile" href="beam-platform"><span class="ic">📊</span><b>Prove the ROI of all of it</b><span class="go">The Beam Platform →</span></a>
+      <a class="tile" href="resources-tools-idea-generator"><span class="ic">✨</span><b>Not sure yet — match me</b><span class="go">Idea Generator →</span></a>
+      <a class="tile wide" href="what-we-do"><b>Just show me everything TeamBeam does</b><span class="go">Explore What We Do →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OFFERING PILLARS ================= -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">The catalog</span>
+      <h2>Everything your team needs, in one place.</h2>
+      <p class="lead">Eight ways we work — all running on one method, all measurable.</p>
+    </div>
+    <div class="cards rv">
+      <a class="card" href="team-experiences"><span class="ic">⚡</span><h3>Team Experiences</h3><p>The spark. Genuinely fun, genuinely designed — every activity targets a real team gap.</p><span class="go">Explore →</span></a>
+      <a class="card" href="impact-csr"><span class="ic">🌱</span><h3>Impact &amp; CSR</h3><p>Give back together. Build-and-donate, sustainability, and community work your team is proud of.</p><span class="go">Explore →</span></a>
+      <a class="card" href="development-facilitation"><span class="ic">🎯</span><h3>Development &amp; Facilitation</h3><p>Where the fun turns strategic. Leadership, alignment, and expert facilitation.</p><span class="go">Explore →</span></a>
+      <a class="card" href="offsites-retreats"><span class="ic">🏔</span><h3>Offsites &amp; Retreats</h3><p>The flagship. End-to-end retreats across the US and worldwide — sourced, planned, run by us.</p><span class="go">Explore →</span></a>
+      <a class="card" href="beam-occasions"><span class="ic">🎉</span><h3>Beam Occasions</h3><p>Celebrate the moments that matter, all year — with your people, clients, and partners.</p><span class="go">Explore →</span></a>
+      <a class="card" href="beam-journeys"><span class="ic">🧭</span><h3>Beam Journeys</h3><p>Discover America together. Travel that reconnects a team and means something.</p><span class="go">Explore →</span></a>
+      <a class="card" href="beam-platform"><span class="ic">📊</span><h3>The Beam Platform</h3><p>The tech and measurement that prove the ROI.</p><span class="go">Explore →</span></a>
+      <a class="card" href="self-serve-kits"><span class="ic">📦</span><h3>Self-Serve &amp; Kits</h3><p>Run it yourself, with our kits, playbook, and certification.</p><span class="go">Explore →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE METHOD ================= -->
+<section class="sec dark">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow" style="color:var(--amber)">How we work</span>
+      <h2>The TeamBeam Method.</h2>
+      <p class="lead">Five steps, every time — at any size, in any mode.</p>
+    </div>
+    <div class="method-bar rv"></div>
+    <div class="method rv">
+      <div class="step"><span class="dot"></span><span class="num">STEP 01</span><h3>Scan</h3><p>Read the team across eight dimensions for a clean baseline.</p></div>
+      <div class="step"><span class="dot"></span><span class="num">STEP 02</span><h3>Design</h3><p>Build the experience to the gap we find — not a default.</p></div>
+      <div class="step"><span class="dot"></span><span class="num">STEP 03</span><h3>Build</h3><p>Prep every detail — venue, travel, agenda, logistics.</p></div>
+      <div class="step"><span class="dot"></span><span class="num">STEP 04</span><h3>Deliver</h3><p>One accountable lead runs the day, flawlessly.</p></div>
+      <div class="step"><span class="dot"></span><span class="num">STEP 05</span><h3>Measure</h3><p>Track the shift and show you what changed.</p></div>
+    </div>
+    <div class="rv" style="margin-top:34px">
+      <a href="why-teambeam-the-method" class="btn btn-amber">Inside the Method <span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MEASUREMENT & PROOF ================= -->
+<section class="sec alt">
+  <div class="wrap split">
+    <div class="body rv">
+      <span class="eyebrow">The part nobody else does</span>
+      <h2 style="margin-top:14px">We prove it.</h2>
+      <p class="lead" style="margin-top:18px">Before your event we read your team across eight dimensions for a clean baseline — your <strong>BeamScore</strong>. After, we track the shift and hand you an <strong>Impact Report</strong> built for finance and leadership.</p>
+      <div class="dims">
+        <span>Trust</span><span>Communication</span><span>Alignment</span><span>Collaboration</span><span>Decision-making</span><span>Energy</span><span>Belonging</span><span>Leadership</span>
+      </div>
+      <div class="chip">Always team-level, consented — never individual surveillance.</div>
+      <div style="margin-top:26px"><a href="why-teambeam-measurement-impact" class="btn btn-blue">See how we measure <span class="arw">→</span></a></div>
+    </div>
+    <div class="radar-card rv">
+      <div class="cap">BeamScore · before → after</div>
+      <svg viewBox="0 0 320 300" width="100%" role="img" aria-label="BeamScore radar chart showing improvement across eight team dimensions after a TeamBeam experience">
+        <g transform="translate(160,150)" stroke="#cfe0f5" fill="none" stroke-width="1">
+          <polygon points="0,-120 104,-60 104,60 0,120 -104,60 -104,-60"/>
+          <polygon points="0,-90 78,-45 78,45 0,90 -78,45 -78,-45"/>
+          <polygon points="0,-60 52,-30 52,30 0,60 -52,30 -52,-30"/>
+          <polygon points="0,-30 26,-15 26,15 0,30 -26,15 -26,-15"/>
+          <line x1="0" y1="0" x2="0" y2="-120"/><line x1="0" y1="0" x2="104" y2="-60"/><line x1="0" y1="0" x2="104" y2="60"/>
+          <line x1="0" y1="0" x2="0" y2="120"/><line x1="0" y1="0" x2="-104" y2="60"/><line x1="0" y1="0" x2="-104" y2="-60"/>
+        </g>
+        <g transform="translate(160,150)">
+          <polygon points="0,-66 57,-33 62,36 0,72 -54,32 -58,-33" fill="rgba(21,101,192,.14)" stroke="#1565C0" stroke-width="2"/>
+          <polygon points="0,-108 94,-54 88,52 0,104 -90,52 -92,-50" fill="rgba(232,148,15,.18)" stroke="#E8940F" stroke-width="2.4"/>
+        </g>
+        <g font-family="DM Mono, monospace" font-size="9" fill="#5b6b7d" text-anchor="middle">
+          <text x="160" y="22">TRUST</text><text x="292" y="92">COMM.</text><text x="292" y="222">ALIGN</text>
+          <text x="160" y="290">DECIDE</text><text x="28" y="222">ENERGY</text><text x="28" y="92">BELONG</text>
+        </g>
+      </svg>
+      <div class="scoreline">
+        <div><div class="v">58</div><div class="l">Baseline</div></div>
+        <div><div class="v after">81</div><div class="l">After + 30 days</div></div>
+        <div><div class="v" style="color:var(--blue)">+23</div><div class="l">BeamScore shift</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CULTURE BAND ================= -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Beyond the once-a-year event</span>
+      <h2>Connection isn't a once-a-year event.</h2>
+    </div>
+    <div class="tri rv">
+      <a class="mini" href="beam-occasions"><span class="tag">All year</span><h3>Beam Occasions</h3><p>Mark holidays, milestones, and key dates all year — inclusively, with everyone who matters.</p></a>
+      <a class="mini" href="beam-journeys"><span class="tag">Discover</span><h3>Beam Journeys</h3><p>Explore America together — its parks, cities, and cultures — and come back closer.</p></a>
+      <a class="mini" href="volunteer"><span class="tag">Opt-in</span><h3>Beam Volunteers</h3><p>Give your people a way to contribute and to share their own communities and culture.</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHO WE SERVE ================= -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Built for your team</span>
+      <h2>Distributed, hybrid, or in one place.</h2>
+      <p class="lead">From seed-stage startups to the Fortune 500. Find your fit by industry, role, or the moment you're in.</p>
+    </div>
+    <div class="rv">
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" data-panel="ind">By industry</button>
+        <button class="tab" role="tab" aria-selected="false" data-panel="role">By role</button>
+        <button class="tab" role="tab" aria-selected="false" data-panel="mom">By moment</button>
+      </div>
+      <div class="tabpanel active" id="ind">
+        <a class="chip-link" href="who-we-serve-industries-technology">Technology</a>
+        <a class="chip-link" href="who-we-serve-industries-financial-services">Financial Services</a>
+        <a class="chip-link" href="who-we-serve-industries-healthcare">Healthcare &amp; Life Sciences</a>
+        <a class="chip-link" href="who-we-serve-industries-professional-services">Professional Services</a>
+        <a class="chip-link" href="who-we-serve-industries-ecommerce-retail">E-commerce &amp; Retail</a>
+        <a class="chip-link" href="who-we-serve-industries-media-entertainment">Media &amp; Entertainment</a>
+        <a class="chip-link" href="who-we-serve-industries-manufacturing">Manufacturing</a>
+        <a class="chip-link" href="who-we-serve-industries-non-profit">Non-Profit</a>
+      </div>
+      <div class="tabpanel" id="role">
+        <a class="chip-link" href="who-we-serve-roles-executives">Executives</a>
+        <a class="chip-link" href="who-we-serve-roles-people-hr">People &amp; HR</a>
+        <a class="chip-link" href="who-we-serve-roles-managers">Managers</a>
+        <a class="chip-link" href="who-we-serve-roles-chiefs-of-staff-eas">Chiefs of Staff &amp; EAs</a>
+        <a class="chip-link" href="who-we-serve-roles-employees">Employees</a>
+      </div>
+      <div class="tabpanel" id="mom">
+        <a class="chip-link" href="who-we-serve-moments-distributed-team-connection">Distributed-team connection</a>
+        <a class="chip-link" href="who-we-serve-moments-onboarding">Onboarding a cohort</a>
+        <a class="chip-link" href="who-we-serve-moments-post-merger">Post-merger integration</a>
+        <a class="chip-link" href="who-we-serve-moments-restructure-reset">Restructure &amp; reset</a>
+        <a class="chip-link" href="who-we-serve-moments-annual-retreat">Annual retreat</a>
+        <a class="chip-link" href="who-we-serve-moments-sales-kickoff">Sales kickoff</a>
+        <a class="chip-link" href="who-we-serve-moments-milestone-anniversary">Milestone &amp; anniversary</a>
+        <a class="chip-link" href="who-we-serve-moments-burnout-recovery">Burnout recovery</a>
+      </div>
+      <div style="margin-top:26px"><a href="who-we-serve" class="btn btn-ghost">Who we serve <span class="arw">→</span></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESULTS ================= -->
+<section class="sec dark">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow" style="color:var(--amber)">Shown, not claimed</span>
+      <h2>What changes when an offsite is actually designed.</h2>
+    </div>
+    <div class="metrics rv">
+      <div class="metric"><div class="v">+23</div><div class="l">avg. BeamScore shift, 30 days</div></div>
+      <div class="metric"><div class="v">94%</div><div class="l">would attend the next one</div></div>
+      <div class="metric"><div class="v">3.4×</div><div class="l">cross-team connections formed</div></div>
+      <div class="metric"><div class="v">1</div><div class="l">accountable lead, every event</div></div>
+    </div>
+    <div class="quotes rv">
+      <div class="quote"><span class="mk">"</span><p>For the first time, our remote team felt like one team again — and I had a report to show the board why it mattered.</p><div class="who">— VP People, Series-C software company</div></div>
+      <div class="quote"><span class="mk">"</span><p>They scanned us first, then designed around what they found. The day felt built for our actual problems.</p><div class="who">— Chief of Staff, financial services</div></div>
+      <div class="quote"><span class="mk">"</span><p>I got to attend my own offsite instead of running it. The follow-up proof sealed next year's budget.</p><div class="who">— Director of Ops, healthcare network</div></div>
+    </div>
+    <div class="rv" style="margin-top:34px"><a href="why-teambeam-results" class="btn btn-amber">See results &amp; stories <span class="arw">→</span></a></div>
+  </div>
+</section>
+
+<!-- ================= RESOURCES / TOOLS ================= -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Lower the effort</span>
+      <h2>Start before you talk to us.</h2>
+      <p class="lead">Free tools to scope your next gathering in minutes.</p>
+    </div>
+    <div class="teaser3 rv">
+      <a class="tool" href="resources-tools-idea-generator"><span class="tg">2-minute quiz</span><h3>Idea Generator</h3><p>Answer a few questions; get matched to the right experience.</p></a>
+      <a class="tool" href="resources-tools-offsite-roi-calculator"><span class="tg">Calculator</span><h3>Offsite ROI Calculator</h3><p>See what a disconnected or unaligned team is costing you.</p></a>
+      <a class="tool" href="resources-tools-team-health-snapshot"><span class="tg">Free diagnostic</span><h3>Team Health Snapshot</h3><p>A short, free taste of the BeamScore across eight dimensions.</p></a>
+    </div>
+    <div class="rv" style="margin-top:30px"><a href="resources" class="btn btn-ghost">Explore resources <span class="arw">→</span></a></div>
+  </div>
+</section>
+
+<!-- ================= CAREERS / PARTNERSHIPS ================= -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Build TeamBeam with us</span>
+      <h2>Two ways in.</h2>
+    </div>
+    <div class="teaser2 rv">
+      <div class="bigcard"><h3>Careers</h3><p>Facilitators, designers, and operators who love reading a room, designing a moment, and pulling off a flawless day. Craft over credentials.</p><a href="careers" class="btn btn-amber">See open roles <span class="arw">→</span></a></div>
+      <div class="bigcard"><h3>Partnerships</h3><p>For those who deliver. Venues, professionals, experts, communities, and partners who hold a standard — across the US and the world.</p><a href="partnerships" class="btn btn-amber">Become a partner <span class="arw">→</span></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CROSS-MARKET ================= -->
+<section class="xmkt">
+  <div class="wrap xmkt-in">
+    <p><b>Based in India, or planning something there?</b> teambeam.in is your home for it — the same method, a team on the ground. One TeamBeam, two homes, working worldwide.</p>
+    <a href="https://teambeam.in" class="btn btn-ghost">Visit teambeam.in <span class="arw">→</span></a>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="finalcta">
+  <div class="wrap rv">
+    <span class="eyebrow" style="color:var(--amber);display:block;margin-bottom:18px">Let's begin</span>
+    <h2>Let's design something <span class="hl">worth the airfare.</span></h2>
+    <a href="contact" class="btn btn-amber">Plan an experience <span class="arw">→</span></a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <div>
+        <a href="/" class="logo">
+          <span class="tb-glyph" aria-hidden="true">Λ</span><span class="tb-word">TEAMBEAM <b>OUTINGS</b></span>
+        </a>
+        <p class="blurb">Designed. Delivered. Measured. The team experience your people don't dread — and your CFO can defend.</p>
+        <p style="font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:#5e7a96;margin-top:14px">PEOPLE · TEAMS · ORGANISATIONS · BEYOND</p>
+        <div class="ft-social"><a class="li" href="https://www.linkedin.com/company/teambeam" target="_blank" rel="noopener" aria-label="TeamBeam on Linkedin"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a><a class="ig" href="https://www.instagram.com/teambeamoutings" target="_blank" rel="noopener" aria-label="TeamBeam on Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.44c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.41-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.42-.36 1.04-.41 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.25 1.77.41 2.19.21.55.47.94.88 1.35.41.41.8.67 1.35.88.42.16 1.04.36 2.19.41 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.25 2.19-.41.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.42.36-1.04.41-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.25-1.77-.41-2.19a3.6 3.6 0 0 0-.88-1.35 3.6 3.6 0 0 0-1.35-.88c-.42-.16-1.04-.36-2.19-.41-1.24-.06-1.61-.07-4.76-.07zm0 2.45a5.95 5.95 0 1 1 0 11.9 5.95 5.95 0 0 1 0-11.9zm0 9.81a3.86 3.86 0 1 0 0-7.72 3.86 3.86 0 0 0 0 7.72zm7.57-10.05a1.39 1.39 0 1 1-2.78 0 1.39 1.39 0 0 1 2.78 0z"/></svg></a><a class="xt" href="https://x.com/teambeamoutings" target="_blank" rel="noopener" aria-label="TeamBeam on X"><svg viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.22-6.82-5.97 6.82H1.65l7.73-8.84L1.23 2.25h6.83l4.71 6.23 5.47-6.23zm-1.16 17.52h1.83L7.01 4.12H5.04l12.04 15.65z"/></svg></a><a class="yt" href="https://www.youtube.com/@teambeamoutings" target="_blank" rel="noopener" aria-label="TeamBeam on Youtube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a><a class="fb" href="https://www.facebook.com/teambeamoutings" target="_blank" rel="noopener" aria-label="TeamBeam on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.08 24 18.09 24 12.07z"/></svg></a></div>
+      </div>
+      <div class="col">
+        <h4>What We Do</h4>
+        <a href="team-experiences">Team Experiences</a>
+        <a href="impact-csr">Impact &amp; CSR</a>
+        <a href="development-facilitation">Development</a>
+        <a href="offsites-retreats">Offsites &amp; Retreats</a>
+        <a href="beam-occasions">Beam Occasions</a>
+        <a href="beam-journeys">Beam Journeys</a>
+        <a href="beam-platform">The Beam Platform</a>
+        <a href="self-serve-kits">Self-Serve &amp; Kits</a>
+      </div>
+      <div class="col">
+        <h4>Explore</h4>
+        <a href="who-we-serve">Who We Serve</a>
+        <a href="destinations">Destinations</a>
+        <a href="occasions">Holidays &amp; Key Dates</a>
+        <a href="why-teambeam">Why TeamBeam</a>
+        <a href="resources">Resources</a>
+        <a href="delivery-modes">Delivery Modes</a>
+      </div>
+      <div class="col">
+        <h4>Company</h4>
+        <a href="about">About</a>
+        <a href="careers">Careers</a>
+        <a href="partnerships">Partnerships</a>
+        <a href="volunteer">Volunteer</a>
+        <a href="contact">Contact</a>
+      </div>
+      <div class="col">
+        <h4>Markets</h4>
+        <a href="https://teambeam.in">TeamBeam India →</a>
+        <a href="destinations-worldwide">Worldwide</a>
+        <h4 style="margin-top:22px">Legal</h4>
+        <a href="privacy">Privacy</a>
+        <a href="terms">Terms</a>
+        <a href="accessibility">Accessibility</a>
+      </div>
+    </div>
+      <div class="ft-contact">
+        <div class="ci"><span class="ic">✉</span><div><span class="lbl">Talk to us</span><a href="mailto:start@teambeam.us">start@teambeam.us</a></div></div>
+        <div class="ci"><span class="ic">☏</span><div><span class="lbl">Call</span><a href="tel:+14154049200">1 (415) 404-9200</a></div></div>
+        <div class="ci"><span class="ic">⌖</span><div><span class="lbl">Visit</span><a href="https://maps.app.goo.gl/5yr6vE8TrUUSVRmu7" target="_blank" rel="noopener">TeamBeam Outings USA<br>600 California St, 11th Floor<br>San Francisco, CA 94108</a></div></div>
+      </div>
+    <div class="ft-bottom">
+      <span class="sister"><b>TeamBeam US · TeamBeam India</b> — one method, working worldwide.</span>
+      <div class="util">
+        <a href="privacy">Privacy</a><a href="terms">Terms</a><a href="accessibility">Accessibility</a>
+        <span>© 2026 TeamBeam</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile nav
+const burger=document.getElementById('burger'),nav=document.getElementById('nav');
+burger.addEventListener('click',()=>{const o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');burger.setAttribute('aria-expanded',false)}));
+
+// Tabs
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected','false'));
+  document.querySelectorAll('.tabpanel').forEach(p=>p.classList.remove('active'));
+  t.setAttribute('aria-selected','true');
+  document.getElementById(t.dataset.panel).classList.add('active');
+}));
+
+// Reveal on scroll (reduced-motion safe)
+const rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(rm){document.querySelectorAll('.rv').forEach(e=>e.classList.add('in'));}
+else{
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+}
+</script>
+<style id="tb-dropdown">
+.nav{position:static}
+.tb-navitem{position:relative;display:inline-flex;align-items:center}
+.tb-navitem > a .caret{transition:transform .2s}
+.tb-navitem:hover > a .caret{transform:rotate(180deg)}
+.tb-dd{position:absolute;top:100%;left:0;margin-top:2px;background:#fff;border:1px solid var(--line);
+  border-radius:16px;box-shadow:0 30px 70px rgba(13,33,55,.18);padding:22px 24px;
+  display:flex;gap:30px;opacity:0;visibility:hidden;transform:translateY(7px);
+  transition:opacity .18s,transform .18s,visibility .18s;z-index:90}
+.tb-dd::before{content:"";position:absolute;top:-12px;left:0;right:0;height:14px}
+.tb-navitem:hover > .tb-dd,.tb-navitem:focus-within > .tb-dd{opacity:1;visibility:visible;transform:none}
+.tb-dd .col{min-width:172px;display:flex;flex-direction:column}
+.tb-dd .col .h{font-family:var(--mono);font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted-2);margin:0 0 10px;padding:0 6px}
+.tb-dd a{display:block;font-family:var(--body);font-size:.885rem;font-weight:600;color:var(--navy);
+  padding:.42em .55em;border-radius:9px;white-space:nowrap;transition:background .15s,color .15s}
+.tb-dd a:hover{background:var(--blue-soft);color:var(--blue)}
+.tb-dd a.viewall{color:var(--amber);font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.04em;margin-top:6px;text-transform:uppercase}
+.tb-dd a.viewall:hover{background:var(--amber-soft);color:#8a5e0f}
+@media(max-width:1000px){
+  .tb-navitem{display:block;width:100%}
+  .tb-dd{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;
+    border-radius:0;padding:2px 0 10px 12px;margin:0;display:block;background:transparent}
+  .tb-dd::before{display:none}
+  .tb-dd .col{min-width:0;margin-bottom:8px}
+  .tb-dd a{font-size:.88rem;padding:.5em .4em}
+  .tb-navitem:hover > a .caret{transform:none}
+}
+</style>
+<script>
+(function(){
+  var nav=document.getElementById('nav'); if(!nav) return;
+  var M={
+   "what-we-do":[
+     {h:"Team Experiences",all:"team-experiences",links:[["Beam Hunts","team-experiences-beam-hunts"],["Beam Mysteries","team-experiences-beam-mysteries"],["Beam Makers","team-experiences-beam-makers"],["Beam Arena","team-experiences-beam-arena"],["Culinary","team-experiences-culinary"],["Rhythm & Music","team-experiences-rhythm-music"],["High-Action & Tech","team-experiences-high-action-tech"],["Beam Reset","team-experiences-beam-reset"]]},
+     {h:"Development",all:"development-facilitation",links:[["Leadership Training","development-facilitation-leadership-team-training"],["Strategic Workshops","development-facilitation-strategic-workshops"],["Expert Facilitation","development-facilitation-expert-facilitation"],["Assessment-Led","development-facilitation-assessment-led-development"],["Professional Excellence","development-facilitation-professional-excellence"],["Guest Expert","development-facilitation-guest-expert-in-residence"]]},
+     {h:"Offsites & Retreats",all:"offsites-retreats",links:[["Team Programs","offsites-retreats-team-programs"],["Executive Experiences","offsites-retreats-executive-experiences"],["Sales Kickoffs","offsites-retreats-sales-kickoffs"],["All-Hands & Townhalls","offsites-retreats-all-hands-townhalls"],["Milestones","offsites-retreats-milestones-anniversaries"],["Incentive Trips","offsites-retreats-incentive-trips"],["Sourcing & Planning","offsites-retreats-sourcing-planning"]]},
+     {h:"Impact · Platform · Kits",links:[["Impact & CSR","impact-csr"],["The Beam Platform","beam-platform"],["Self-Serve & Kits","self-serve-kits"],["Beam Occasions","beam-occasions"],["Beam Journeys","beam-journeys"],["Delivery Modes","delivery-modes"]]}
+   ],
+   "who-we-serve":[
+     {h:"Industries",all:"who-we-serve",links:[["Technology","who-we-serve-industries-technology"],["Financial Services","who-we-serve-industries-financial-services"],["Healthcare","who-we-serve-industries-healthcare"],["Professional Services","who-we-serve-industries-professional-services"],["Media & Entertainment","who-we-serve-industries-media-entertainment"],["E-commerce & Retail","who-we-serve-industries-ecommerce-retail"],["Manufacturing","who-we-serve-industries-manufacturing"],["Non-Profit","who-we-serve-industries-non-profit"]]},
+     {h:"Roles",links:[["Executives","who-we-serve-roles-executives"],["People & HR","who-we-serve-roles-people-hr"],["Managers","who-we-serve-roles-managers"],["Chiefs of Staff / EAs","who-we-serve-roles-chiefs-of-staff-eas"],["Employees","who-we-serve-roles-employees"]]},
+     {h:"Moments",links:[["Onboarding","who-we-serve-moments-onboarding"],["Annual Retreat","who-we-serve-moments-annual-retreat"],["Sales Kickoff","who-we-serve-moments-sales-kickoff"],["Post-Merger","who-we-serve-moments-post-merger"],["Restructure & Reset","who-we-serve-moments-restructure-reset"],["Burnout Recovery","who-we-serve-moments-burnout-recovery"],["Distributed Connection","who-we-serve-moments-distributed-team-connection"],["Milestone & Anniversary","who-we-serve-moments-milestone-anniversary"]]}
+   ],
+   "destinations":[
+     {h:"Cities",all:"destinations",links:[["SF Bay Area","destinations-sf-bay"],["New York","destinations-nyc"],["Los Angeles","destinations-la"],["Austin","destinations-austin"],["Chicago","destinations-chicago"],["Seattle","destinations-seattle"],["Denver","destinations-denver"],["Boston","destinations-boston"],["Atlanta","destinations-atlanta"],["Washington DC","destinations-dc"]]},
+     {h:"Regions",links:[["West / Pacific","destinations-us-west-pacific"],["Southwest","destinations-us-southwest"],["Mountain West","destinations-us-mountain-west"],["Midwest & Great Lakes","destinations-us-midwest-great-lakes"],["South","destinations-us-south"],["Northeast & New England","destinations-us-northeast-new-england"]]},
+     {h:"Nature & Global",links:[["National Parks","destinations-national-parks"],["Worldwide","destinations-worldwide"]]}
+   ],
+   "why-teambeam":[
+     {h:"Why TeamBeam",all:"why-teambeam",links:[["The Method","why-teambeam-the-method"],["Measurement & Impact","why-teambeam-measurement-impact"],["Results","why-teambeam-results"]]}
+   ],
+   "resources":[
+     {h:"Tools",all:"resources",links:[["Idea Generator","resources-tools-idea-generator"],["Offsite ROI Calculator","resources-tools-offsite-roi-calculator"],["Team Health Snapshot","resources-tools-team-health-snapshot"],["Flight-Hub Finder","resources-tools-flight-hub-finder"]]},
+     {h:"Read & Listen",links:[["Insights","resources-insights"],["Podcast","resources-podcast"]]}
+   ],
+   "about":[
+     {h:"Company",all:"about",links:[["About","about"],["Careers","careers"],["Partnerships","partnerships"],["Volunteer","volunteer"],["Contact","contact"]]}
+   ]
+  };
+  Object.keys(M).forEach(function(key){
+    var a=nav.querySelector('a[href="'+key+'"]'); if(!a) return;
+    var item=document.createElement('span'); item.className='tb-navitem';
+    a.parentNode.insertBefore(item,a); item.appendChild(a);
+    if(!a.querySelector('.caret')){var c=document.createElement('span');c.className='caret';c.innerHTML='&#9662;';a.appendChild(document.createTextNode(' '));a.appendChild(c);}
+    var dd=document.createElement('div'); dd.className='tb-dd';
+    M[key].forEach(function(c){
+      var col=document.createElement('div'); col.className='col';
+      if(c.h){var h=document.createElement('div');h.className='h';h.textContent=c.h;col.appendChild(h);}
+      c.links.forEach(function(l){var x=document.createElement('a');x.href=l[1];x.textContent=l[0];col.appendChild(x);});
+      if(c.all){var v=document.createElement('a');v.className='viewall';v.href=c.all;v.textContent='View all \u2192';col.appendChild(v);}
+      dd.appendChild(col);
+    });
+    item.appendChild(dd);
+    item.addEventListener('mouseenter',function(){
+      dd.style.left='0';dd.style.right='auto';
+      var r=dd.getBoundingClientRect();
+      if(r.right>window.innerWidth-16){dd.style.left='auto';dd.style.right='0';}
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

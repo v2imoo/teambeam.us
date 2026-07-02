@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Health Snapshot — A Quick Read Across 8 Dimensions | TeamBeam US</title>
+<meta name="description" content="A free, instant self-assessment of your team's health across the eight dimensions TeamBeam measures — trust, communication, alignment, and more. Team-level, illustrative, private to you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0D2137;--navy-2:#13304f;--blue:#1565C0;--blue-soft:#e7f0fb;--blue-line:#cfe0f5;--amber:#E8940F;--amber-soft:#fdf1dd;--ink:#0D2137;--muted:#5b6b7d;--muted-2:#8395a6;--bg:#fff;--bg-2:#f6f8fb;--bg-3:#eef2f7;--line:#e3e9f0;--radius:18px;--radius-lg:28px;--shadow:0 1px 2px rgba(13,33,55,.04),0 12px 30px rgba(13,33,55,.06);--shadow-lg:0 30px 70px rgba(13,33,55,.16);--maxw:1180px;--display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Plus Jakarta Sans',system-ui,sans-serif;--mono:'Space Mono',ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;font-size:17px;overflow-x:hidden}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.1;letter-spacing:-.02em;font-weight:700;color:var(--navy)}
+h1{font-size:clamp(2.1rem,4.6vw,3.4rem);font-weight:800}h2{font-size:clamp(1.5rem,3vw,2.2rem)}h3{font-size:clamp(1.1rem,1.6vw,1.3rem)}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);font-weight:500}
+.lead{font-size:clamp(1.05rem,1.5vw,1.2rem);color:var(--muted);max-width:60ch}
+.btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--body);font-weight:600;font-size:1rem;padding:.85em 1.5em;border-radius:999px;cursor:pointer;border:1.5px solid transparent;transition:transform .25s,box-shadow .25s,background .2s,color .2s;white-space:nowrap}
+.btn .arw{transition:transform .25s}.btn:hover .arw{transform:translateX(4px)}
+.btn-amber{background:var(--amber);color:#3a2400;box-shadow:0 10px 24px rgba(232,148,15,.32)}.btn-amber:hover{transform:translateY(-2px)}
+.btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.32)}.btn-ghost-light:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.hdr{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.86);backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line)}
+.hdr-in{display:flex;align-items:center;gap:18px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--navy);letter-spacing:-.03em}.logo .mk{width:26px;height:26px;flex:none}
+.nav{display:flex;align-items:center;gap:4px;margin-left:14px}.nav a{font-size:.95rem;font-weight:500;color:var(--navy);padding:.5em .7em;border-radius:8px;display:flex;align-items:center;gap:4px}
+.nav a:hover,.nav a.active{background:var(--bg-3)}.nav a.active{color:var(--blue)}.nav .caret{font-size:.6rem;opacity:.5}
+.hdr-r{margin-left:auto;display:flex;align-items:center;gap:12px}
+.mkt{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:.4em .7em}.mkt b{color:var(--navy)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}.burger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:.3s}
+@media(max-width:1000px){.nav{display:none}.mkt{display:none}.burger{display:flex}.nav.open{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:flex-start;background:#fff;padding:14px 24px 22px;border-bottom:1px solid var(--line);gap:2px;box-shadow:var(--shadow)}.nav.open a{width:100%;padding:.8em .4em;border-bottom:1px solid var(--bg-3)}}
+.crumb{background:var(--bg-2);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--muted)}.crumb .wrap{padding:12px 24px}.crumb a{color:var(--muted)}.crumb a:hover{color:var(--blue)}.crumb b{color:var(--navy);font-weight:500}
+.phero{background:radial-gradient(120% 120% at 82% -10%,#1b3e63 0%,var(--navy) 48%,#091627 100%);color:#fff;overflow:hidden;padding:60px 0 64px;position:relative}
+.phero::before{content:"";position:absolute;inset:0;background:radial-gradient(42% 52% at 86% 14%,rgba(232,148,15,.18),transparent 60%),radial-gradient(34% 44% at 8% 92%,rgba(21,101,192,.3),transparent 60%);pointer-events:none}
+.beam-grid{position:absolute;inset:0;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(80% 70% at 50% 30%,#000 30%,transparent 75%)}
+.phero-in{position:relative;z-index:2;max-width:760px}.phero .ico{font-size:2.4rem;margin-bottom:10px}
+.phero .eyebrow{color:var(--amber);display:block;margin-bottom:14px}.phero h1{color:#fff}.phero h1 .hl{color:var(--amber)}
+.phero .sub{color:#c4d4e6;font-size:clamp(1.05rem,1.6vw,1.22rem);margin:16px 0 0;max-width:56ch}
+.sec{padding:64px 0}.alt{background:var(--bg-2)}
+.tool{max-width:820px;margin:0 auto}
+.toolcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);overflow:hidden}
+.progress{height:6px;background:var(--bg-3)}.progress .bar{height:100%;background:linear-gradient(90deg,var(--amber),var(--blue));width:0;transition:width .4s cubic-bezier(.2,.7,.3,1)}
+.toolbody{padding:38px}@media(max-width:560px){.toolbody{padding:26px 22px}}
+.privacy-pill{display:inline-flex;align-items:center;gap:8px;background:var(--amber-soft);border:1px solid #f3d9ad;border-radius:999px;padding:.45em 1em;font-size:.82rem;color:#6b4e1f;font-weight:600;margin-bottom:24px}
+.privacy-pill::before{content:"\\1F512";font-size:.95rem}
+/* quiz */
+.qstep{display:none}.qstep.active{display:block;animation:fade .4s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.qnum{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:500}
+.qdim{display:inline-block;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-left:8px}
+.qh{font-family:var(--display);font-size:clamp(1.3rem,2.4vw,1.7rem);font-weight:700;color:var(--navy);margin:10px 0 22px;letter-spacing:-.02em;line-height:1.25}
+.scale{display:flex;flex-direction:column;gap:10px}
+.sopt{display:flex;align-items:center;gap:14px;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:15px 18px;cursor:pointer;font-family:var(--body);font-size:1rem;color:var(--navy);transition:.18s;text-align:left;width:100%}
+.sopt:hover{border-color:var(--blue);background:var(--blue-soft);transform:translateX(3px)}
+.sopt.sel{border-color:var(--amber);background:var(--amber-soft);box-shadow:0 0 0 3px rgba(232,148,15,.13)}
+.sopt .dotn{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center;font-family:var(--mono);font-weight:600;font-size:.85rem;color:var(--muted)}
+.sopt.sel .dotn{border-color:var(--amber);background:var(--amber);color:#3a2400}
+.navrow{display:flex;justify-content:space-between;align-items:center;margin-top:26px;gap:12px}
+.back{background:none;border:0;color:var(--muted);font-family:var(--body);font-size:.95rem;cursor:pointer;padding:.6em .2em}.back:hover{color:var(--navy)}.back:disabled{opacity:0;pointer-events:none}
+.qcount{font-family:var(--mono);font-size:.8rem;color:var(--muted-2)}
+/* results */
+.results{display:none}.results.show{display:block;animation:fade .5s ease}
+.res-head{text-align:center;margin-bottom:24px}.res-head .ic{font-size:2rem}.res-head h2{margin:6px 0}.res-head p{color:var(--muted);max-width:46ch;margin:0 auto}
+.scorebig{text-align:center;margin:10px 0 26px}
+.scorebig .n{font-family:var(--display);font-weight:800;font-size:3.4rem;letter-spacing:-.03em;line-height:1}
+.scorebig .o{color:var(--muted-2);font-size:1.4rem;font-weight:600}
+.scorebig .band{font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-top:6px;display:inline-block;padding:.3em .9em;border-radius:999px}
+.viz{display:grid;grid-template-columns:300px 1fr;gap:30px;align-items:center;margin-top:10px}
+@media(max-width:680px){.viz{grid-template-columns:1fr;gap:18px}}
+.radarwrap{display:flex;justify-content:center}
+.bars{display:flex;flex-direction:column;gap:11px}
+.brow2{display:grid;grid-template-columns:130px 1fr 38px;align-items:center;gap:10px;font-size:.9rem}
+.brow2 .bn{color:var(--navy);font-weight:600}
+.btrack{height:9px;background:var(--bg-3);border-radius:6px;overflow:hidden}
+.bfill{height:100%;border-radius:6px;width:0;transition:width .9s cubic-bezier(.2,.7,.3,1)}
+.brow2 .bsc{font-family:var(--mono);font-weight:600;color:var(--muted);text-align:right}
+.focus{background:linear-gradient(160deg,#fff,var(--blue-soft));border:1px solid var(--blue-line);border-radius:var(--radius);padding:24px 26px;margin-top:28px}
+.focus h3{font-size:1.15rem;margin-bottom:8px;display:flex;align-items:center;gap:9px}
+.focus p{color:var(--muted);font-size:.96rem}.focus .rec{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.focus .rec a{font-size:.88rem;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.5em 1em;color:var(--navy);transition:.2s}.focus .rec a:hover{border-color:var(--blue);color:var(--blue)}
+.res-cta{margin-top:28px;background:linear-gradient(160deg,var(--navy),#091627);border-radius:var(--radius-lg);padding:32px;text-align:center;color:#fff}
+.res-cta h3{color:#fff;font-size:1.35rem;margin-bottom:8px}.res-cta p{color:#b9cadd;font-size:.96rem;max-width:44ch;margin:0 auto 20px}
+.res-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.restart{display:block;margin:18px auto 0;background:none;border:0;color:var(--muted);font-family:var(--body);font-size:.92rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px}.restart:hover{color:var(--navy)}
+.disc{text-align:center;font-size:.84rem;color:var(--muted-2);margin-top:22px;max-width:64ch;margin-left:auto;margin-right:auto;line-height:1.55}
+.ft{background:#091627;color:#9fb6cd;padding:64px 0 30px}.ft-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:30px}
+.ft .logo{color:#fff;margin-bottom:14px}.ft .blurb{font-size:.92rem;color:#7e96ae;max-width:30ch}
+.ft .col h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;font-weight:500;margin-bottom:14px}
+.ft .col a{display:block;font-size:.92rem;color:#9fb6cd;padding:5px 0;transition:.2s}.ft .col a:hover{color:var(--amber)}
+.ft-contact{display:grid;grid-template-columns:repeat(3,auto);gap:14px 40px;margin-top:44px;padding-top:28px;border-top:1px solid rgba(255,255,255,.08);justify-content:start}
+.ft-contact .ci{display:flex;align-items:flex-start;gap:10px}.ft-contact .ci .ic{color:var(--amber);font-size:1rem;line-height:1.4;flex:none}
+.ft-contact .ci .lbl{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#5e7a96;display:block;margin-bottom:3px}
+.ft-contact .ci a{font-size:.92rem;color:#cdddee;line-height:1.45}.ft-contact .ci a:hover{color:var(--amber)}
+@media(max-width:780px){.ft-contact{grid-template-columns:1fr;gap:18px}}
+.ft-bottom{margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.sister{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:#7e96ae}.sister b{color:#cdddee}
+.ft-bottom .util{display:flex;gap:18px;flex-wrap:wrap}.ft-bottom .util a{font-size:.8rem;color:#7e96ae}.ft-bottom .util a:hover{color:#fff}
+@media(max-width:980px){.ft-top{grid-template-columns:1fr 1fr}}
+</style>
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="googlebot" content="index,follow">
+<meta name="author" content="TeamBeam Outings USA">
+<meta name="publisher" content="TeamBeam Outings USA">
+<meta name="theme-color" content="#0D2137">
+<meta name="apple-mobile-web-app-title" content="TeamBeam">
+<meta name="application-name" content="TeamBeam">
+<meta name="format-detection" content="telephone=no">
+<meta name="geo.region" content="US-CA">
+<meta name="geo.placename" content="San Francisco">
+<meta name="geo.position" content="37.7929099;-122.4046876">
+<meta name="ICBM" content="37.7929099, -122.4046876">
+<link rel="canonical" href="https://teambeam.us/resources-tools-team-health-snapshot">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="alternate" hreflang="en-us" href="https://teambeam.us/resources-tools-team-health-snapshot">
+<link rel="alternate" hreflang="x-default" href="https://teambeam.us/resources-tools-team-health-snapshot">
+<meta property="og:site_name" content="TeamBeam Outings USA">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Team Health Snapshot — A Quick Read Across 8 Dimensions | TeamBeam US">
+<meta property="og:description" content="A free, instant self-assessment of your team&#x27;s health across the eight dimensions TeamBeam measures — trust, communication, alignment, and more. Team-level, illustrative, private to you.">
+<meta property="og:url" content="https://teambeam.us/resources-tools-team-health-snapshot">
+<meta property="og:image" content="https://teambeam.us/og-cover.png">
+<meta property="og:image:secure_url" content="https://teambeam.us/og-cover.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TeamBeam Outings — Designed. Delivered. Measured.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Team Health Snapshot — A Quick Read Across 8 Dimensions | TeamBeam US">
+<meta name="twitter:description" content="A free, instant self-assessment of your team&#x27;s health across the eight dimensions TeamBeam measures — trust, communication, alignment, and more. Team-level, illustrative, private to you.">
+<meta name="twitter:image" content="https://teambeam.us/og-cover.png">
+<meta name="twitter:image:alt" content="TeamBeam Outings — team experiences, designed, delivered, measured">
+<meta name="twitter:site" content="@teambeamoutings">
+<meta name="twitter:creator" content="@teambeamoutings">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://teambeam.us/#org","name":"TeamBeam Outings USA","alternateName":"TeamBeam US","url":"https://teambeam.us/","logo":"https://teambeam.us/og-cover.png","image":"https://teambeam.us/og-cover.png","slogan":"Designed. Delivered. Measured.","description":"TeamBeam designs, delivers, and measures corporate team experiences, retreats, and everyday connection for distributed and in-person teams across the United States and worldwide.","email":"start@teambeam.us","telephone":"+1-415-404-9200","address":{"@type":"PostalAddress","streetAddress":"600 California St, 11th Floor","addressLocality":"San Francisco","addressRegion":"CA","postalCode":"94108","addressCountry":"US"},"areaServed":["US","Worldwide"],"sameAs":["https://www.linkedin.com/company/teambeam","https://www.instagram.com/teambeamoutings","https://x.com/teambeamoutings","https://www.youtube.com/@teambeamoutings","https://www.facebook.com/teambeamoutings","https://teambeam.in"],"contactPoint":[{"@type":"ContactPoint","email":"start@teambeam.us","telephone":"+1-415-404-9200","contactType":"sales","areaServed":"US","availableLanguage":"English"}]},{"@type":"WebSite","@id":"https://teambeam.us/#website","url":"https://teambeam.us/","name":"TeamBeam Outings USA","publisher":{"@id":"https://teambeam.us/#org"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://teambeam.us/resources-tools-team-health-snapshot#webpage","url":"https://teambeam.us/resources-tools-team-health-snapshot","name":"Team Health Snapshot — A Quick Read Across 8 Dimensions | TeamBeam US","description":"A free, instant self-assessment of your team's health across the eight dimensions TeamBeam measures — trust, communication, alignment, and more. Team-level, illustrative, private to you.","isPartOf":{"@id":"https://teambeam.us/#website"},"about":{"@id":"https://teambeam.us/#org"},"inLanguage":"en-US"},{"@type":"BreadcrumbList","@id":"https://teambeam.us/resources-tools-team-health-snapshot#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://teambeam.us/"},{"@type":"ListItem","position":2,"name":"Team Health Snapshot","item":"https://teambeam.us/resources-tools-team-health-snapshot"}]}]}</script>
+
+<style id="tb-enhance">
+/* refined header menu + US/IN switch */
+.nav{gap:3px;margin-left:20px}
+.nav a{font-family:var(--body);font-size:.905rem;font-weight:600;color:var(--navy);padding:.55em .82em;border-radius:10px;letter-spacing:-.005em;transition:background .18s,color .18s}
+.nav a:hover{background:var(--blue-soft);color:var(--blue)}
+.nav a.active{color:var(--blue);background:var(--blue-soft)}
+.nav .caret{font-size:.5rem;opacity:.4;margin-left:2px;transform:translateY(-1px)}
+.mkt{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.06em;border:1px solid var(--line);border-radius:999px;padding:.32em .46em .32em .32em;background:#fff}
+.mkt .mkt-us{background:var(--navy);color:#fff;font-weight:700;padding:.28em .6em;border-radius:999px}
+.mkt .mkt-sep{color:var(--muted-2);opacity:.7;padding:0 1px}
+.mkt .mkt-in{color:var(--muted);font-weight:600;padding:.28em .55em;border-radius:999px;text-decoration:none;transition:.18s;cursor:pointer}
+.mkt .mkt-in:hover{background:var(--amber);color:#3a2400}
+.nav.open a{font-weight:600}.nav.open a:hover{background:var(--blue-soft)}
+
+/* ---- TeamBeam vibrancy + rebrand enhancement layer ---- */
+:root{
+  --c-amber:#E8940F;--c-sky:#1565C0;--c-teal:#0FA6A0;--c-coral:#F0603E;
+  --c-purple:#7C5CFC;--c-green:#1F9E6B;--c-pink:#E24A8B;--c-gold:#F2B807;
+}
+/* text logo */
+.logo{display:inline-flex!important;align-items:baseline!important;gap:7px!important;white-space:nowrap;font-family:var(--display)}
+.logo .tb-glyph{font-family:var(--display);font-weight:800;font-size:1.28rem;line-height:1;color:var(--amber)}
+.logo .tb-word{font-family:var(--display);font-weight:800;font-size:1.02rem;line-height:1;letter-spacing:.045em;color:var(--navy)}
+.logo .tb-word b{color:var(--amber);font-weight:800}
+.ft .logo{align-items:baseline!important}.ft .logo .tb-word{color:#fff}.ft .logo .tb-glyph{color:var(--amber)}
+/* comfortable minimum type sizes */
+.eyebrow{font-size:.78rem}
+.ft-contact .ci .lbl,.acard .cat,.hlc .go,.expc .go,.hub .badge,.match .why{font-size:.7rem}
+body{font-size:17.5px}
+/* rainbow hairline under sticky header */
+.hdr{position:relative}
+.hdr::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
+  background:linear-gradient(90deg,var(--c-amber),var(--c-coral),var(--c-pink),var(--c-purple),var(--c-sky),var(--c-teal),var(--c-green));
+  opacity:.9}
+/* multicolour accents on repeating cards (top bar + hover border) */
+.expc,.hlc,.tcard,.acard,.hub,.gcard,.ec{--acc:var(--c-sky)}
+.expc:nth-of-type(6n+1),.hlc:nth-of-type(6n+1),.tcard:nth-of-type(6n+1),.acard:nth-of-type(6n+1),.hub:nth-of-type(6n+1){--acc:var(--c-amber)}
+.expc:nth-of-type(6n+2),.hlc:nth-of-type(6n+2),.tcard:nth-of-type(6n+2),.acard:nth-of-type(6n+2),.hub:nth-of-type(6n+2){--acc:var(--c-teal)}
+.expc:nth-of-type(6n+3),.hlc:nth-of-type(6n+3),.tcard:nth-of-type(6n+3),.acard:nth-of-type(6n+3),.hub:nth-of-type(6n+3){--acc:var(--c-coral)}
+.expc:nth-of-type(6n+4),.hlc:nth-of-type(6n+4),.tcard:nth-of-type(6n+4),.acard:nth-of-type(6n+4),.hub:nth-of-type(6n+4){--acc:var(--c-purple)}
+.expc:nth-of-type(6n+5),.hlc:nth-of-type(6n+5),.tcard:nth-of-type(6n+5),.acard:nth-of-type(6n+5),.hub:nth-of-type(6n+5){--acc:var(--c-green)}
+.expc:nth-of-type(6n+6),.hlc:nth-of-type(6n+6),.tcard:nth-of-type(6n+6),.acard:nth-of-type(6n+6),.hub:nth-of-type(6n+6){--acc:var(--c-pink)}
+.expc::after,.hlc.link::after,.tcard::after,.acard::after{background:var(--acc)!important}
+.expc:hover,.hlc.link:hover,.tcard:hover,.acard:hover{border-color:var(--acc)!important;box-shadow:0 22px 50px -18px color-mix(in srgb,var(--acc) 45%,transparent)!important}
+.hlc .ic,.expc .ic,.acard .top .e{color:var(--acc)}
+/* colourful chips dots */
+.chip:nth-of-type(6n+1) .dot{background:var(--c-amber)}
+.chip:nth-of-type(6n+2) .dot{background:var(--c-teal)}
+.chip:nth-of-type(6n+3) .dot{background:var(--c-coral)}
+.chip:nth-of-type(6n+4) .dot{background:var(--c-purple)}
+.chip:nth-of-type(6n+5) .dot{background:var(--c-green)}
+.chip:nth-of-type(6n+6) .dot{background:var(--c-pink)}
+/* warmer, richer CTA glow */
+.finalcta{background:radial-gradient(120% 130% at 15% -20%,#1b3e63,var(--navy) 55%,#091627),radial-gradient(90% 120% at 100% 120%,rgba(232,148,15,.22),transparent 55%)!important;background-blend-mode:screen}
+/* footer social row */
+.ft-social{display:flex;gap:10px;margin-top:18px}
+.ft-social a{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#cdddee;transition:.2s}
+.ft-social a:hover{transform:translateY(-3px);border-color:transparent}
+.ft-social a.li:hover{background:#0A66C2;color:#fff}
+.ft-social a.ig:hover{background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF);color:#fff}
+.ft-social a.xt:hover{background:#000;color:#fff}
+.ft-social a.yt:hover{background:#FF0000;color:#fff}
+.ft-social a.fb:hover{background:#1877F2;color:#fff}
+.ft-social svg{width:17px;height:17px;fill:currentColor}
+/* contact map */
+.tb-map{margin:0 auto;max-width:1180px;padding:0 24px 8px}
+.tb-map .frame{border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.tb-map iframe{display:block;width:100%;height:420px;border:0}
+@media(max-width:560px){.tb-map iframe{height:320px}}
+</style>
+
+</head>
+<body>
+<header class="hdr"><div class="wrap hdr-in">
+<a href="/" class="logo" aria-label="TeamBeam home"><span class="tb-glyph" aria-hidden="true">Λ</span><span class="tb-word">TEAMBEAM <b>OUTINGS</b></span></a>
+<nav class="nav" id="nav"><a href="what-we-do">What We Do <span class="caret">&#9662;</span></a><a href="who-we-serve">Who We Serve <span class="caret">&#9662;</span></a><a href="destinations">Destinations <span class="caret">&#9662;</span></a><a href="why-teambeam">Why TeamBeam <span class="caret">&#9662;</span></a><a href="resources" class="active">Resources <span class="caret">&#9662;</span></a><a href="about">About</a></nav>
+<div class="hdr-r"><span class="mkt"><span class="mkt-us" aria-current="page">US</span><span class="mkt-sep">&#8596;</span><a class="mkt-in" href="https://www.teambeam.in/" aria-label="Switch to TeamBeam India">IN</a></span><a href="contact" class="btn btn-amber">Plan an experience <span class="arw">&rarr;</span></a><button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+</div></header>
+<div class="crumb"><div class="wrap"><a href="/">Home</a> &nbsp;/&nbsp; <a href="resources">Resources</a> &nbsp;/&nbsp; <a href="resources">Tools</a> &nbsp;/&nbsp; <b>Team Health Snapshot</b></div></div>
+<section class="phero"><div class="beam-grid"></div><div class="wrap phero-in">
+<div class="ico">&#129516;</div>
+<span class="eyebrow">Free Tool &middot; A 2-minute read</span>
+<h1>How healthy is <span class="hl">your team, really?</span></h1>
+<p class="sub">A quick self-reflection across the eight dimensions we measure &mdash; trust, communication, alignment, and more. You'll get an instant visual snapshot and a sense of where to focus. Private to you, team-level, never about individuals.</p>
+</div></section>
+
+<section class="sec"><div class="wrap tool">
+<div class="toolcard">
+<div class="progress"><div class="bar" id="bar"></div></div>
+<div class="toolbody">
+
+<div id="quiz">
+<span class="privacy-pill">Private &amp; team-level &mdash; nothing is sent anywhere</span>
+<div id="qhost"></div>
+<div class="navrow">
+<button class="back" id="back" disabled>&larr; Back</button>
+<span class="qcount" id="qcount"></span>
+</div>
+</div>
+
+<div class="results" id="results">
+<div class="res-head"><div class="ic">&#129516;</div><h2>Your team's snapshot</h2><p>A reflective read across the eight dimensions &mdash; based on your own sense of the team.</p></div>
+<div class="scorebig"><span class="n" id="overall">0</span><span class="o">/100</span><div class="band" id="band"></div></div>
+<div class="viz">
+<div class="radarwrap"><svg id="radar" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Team health radar chart"></svg></div>
+<div class="bars" id="bars"></div>
+</div>
+<div class="focus" id="focus"></div>
+<div class="res-cta">
+<h3>This is a reflection. We measure the real thing.</h3>
+<p>BeamScore reads your team properly &mdash; consented, before and after an experience &mdash; so the change is a number, not a hunch. Let's turn this snapshot into a real baseline.</p>
+<div class="res-actions">
+<a href="contact" class="btn btn-amber">Get a real read <span class="arw">&rarr;</span></a>
+<a href="beam-platform-measurement" class="btn btn-ghost-light">How BeamScore works</a>
+</div>
+</div>
+<button class="restart" id="restart">&#8635; Take it again</button>
+<p class="disc"><b>This is a quick, illustrative self-reflection &mdash; not the BeamScore diagnostic itself, and not a clinical or definitive assessment.</b> It reflects one person's view of the team on the day. A real BeamScore gathers consented input across the team, at the team level, and is never used to score or monitor individuals.</p>
+</div>
+
+</div></div>
+</div></section>
+
+<footer class="ft"><div class="wrap"><div class="ft-top">
+<div><a href="/" class="logo"><span class="tb-glyph" aria-hidden="true">Λ</span><span class="tb-word">TEAMBEAM <b>OUTINGS</b></span></a>
+<p class="blurb">Designed. Delivered. Measured. The team experience your people don't dread &mdash; and your CFO can defend.</p>
+<p style="font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:#5e7a96;margin-top:14px">PEOPLE &middot; TEAMS &middot; ORGANISATIONS &middot; BEYOND</p></div>
+<div class="col"><h4>What We Do</h4><a href="team-experiences">Team Experiences</a><a href="impact-csr">Impact &amp; CSR</a><a href="development-facilitation">Development</a><a href="offsites-retreats">Offsites &amp; Retreats</a><a href="beam-occasions">Beam Occasions</a><a href="beam-journeys">Beam Journeys</a><a href="beam-platform">The Beam Platform</a><a href="self-serve-kits">Self-Serve &amp; Kits</a></div>
+<div class="col"><h4>Explore</h4><a href="who-we-serve">Who We Serve</a><a href="destinations">Destinations</a><a href="occasions">Holidays &amp; Key Dates</a><a href="why-teambeam">Why TeamBeam</a><a href="resources">Resources</a><a href="delivery-modes">Delivery Modes</a></div>
+<div class="col"><h4>Company</h4><a href="about">About</a><a href="careers">Careers</a><a href="partnerships">Partnerships</a><a href="volunteer">Volunteer</a><a href="contact">Contact</a></div>
+<div class="col"><h4>Markets</h4><a href="https://teambeam.in">TeamBeam India &rarr;</a><a href="destinations-worldwide">Worldwide</a><h4 style="margin-top:22px">Legal</h4><a href="privacy">Privacy</a><a href="terms">Terms</a><a href="accessibility">Accessibility</a></div>
+</div>
+<div class="ft-contact"><div class="ci"><span class="ic">&#9993;</span><div><span class="lbl">Talk to us</span><a href="mailto:start@teambeam.us">start@teambeam.us</a></div></div><div class="ci"><span class="ic">&#9743;</span><div><span class="lbl">Call</span><a href="tel:+14154049200">1 (415) 404-9200</a></div></div><div class="ci"><span class="ic">&#8982;</span><div><span class="lbl">Visit</span><a href="https://maps.app.goo.gl/5yr6vE8TrUUSVRmu7" target="_blank" rel="noopener">TeamBeam Outings USA<br>600 California St, 11th Floor<br>San Francisco, CA 94108</a></div></div></div>
+<div class="ft-bottom"><span class="sister"><b>TeamBeam US &middot; TeamBeam India</b> &mdash; one method, working worldwide.</span><div class="util"><a href="privacy">Privacy</a><a href="terms">Terms</a><a href="accessibility">Accessibility</a><span>&copy; 2026 TeamBeam</span></div></div>
+</div></footer>
+
+<script>
+(function(){
+var burger=document.getElementById('burger'),nav=document.getElementById('nav');
+burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);});
+nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);});});
+
+// 8 dimensions — plain reflective prompts (NOT the proprietary instrument)
+var DIMS=[
+ {k:'Trust',q:'People on this team trust each other and feel safe to speak up.',rec:[['Expert Facilitation','development-facilitation-expert-facilitation.html'],['Beam Mysteries','team-experiences-beam-mysteries.html']]},
+ {k:'Communication',q:'Information flows clearly &mdash; people listen, and little gets lost.',rec:[['Professional Excellence','development-facilitation-professional-excellence.html'],['Beam Hunts','team-experiences-beam-hunts.html']]},
+ {k:'Alignment',q:'Everyone understands the goals and is pulling in the same direction.',rec:[['Strategic Workshops','development-facilitation-strategic-workshops.html'],['Rhythm & Music','team-experiences-rhythm-music.html']]},
+ {k:'Collaboration',q:'People work well across roles and help each other get things done.',rec:[['Beam Makers','team-experiences-beam-makers.html'],['Culinary','team-experiences-culinary.html']]},
+ {k:'Decision-making',q:'The team makes good decisions at a healthy pace, with real input.',rec:[['Strategic Workshops','development-facilitation-strategic-workshops.html'],['Beam Mysteries','team-experiences-beam-mysteries.html']]},
+ {k:'Energy',q:'The team has the energy and motivation to do its best work.',rec:[['Beam Reset','team-experiences-beam-reset.html'],['High-Action & Tech','team-experiences-high-action-tech.html']]},
+ {k:'Belonging',q:'People feel they genuinely belong here and are valued for who they are.',rec:[['Team Appreciation','offsites-retreats-team-appreciation.html'],['Team Programs','offsites-retreats-team-programs.html']]},
+ {k:'Leadership',q:'Leaders set clear direction and support the team well.',rec:[['Leadership & Team Training','development-facilitation-leadership-team-training.html'],['Executive Experiences','offsites-retreats-executive-experiences.html']]}
+];
+var SCALE=[['1','Rarely true'],['2','Sometimes'],['3','Often'],['4','Usually'],['5','Almost always']];
+var answers=new Array(DIMS.length).fill(null), cur=0;
+var qhost=document.getElementById('qhost'),bar=document.getElementById('bar'),backBtn=document.getElementById('back'),
+    qcount=document.getElementById('qcount'),quiz=document.getElementById('quiz'),results=document.getElementById('results');
+
+function renderQ(){
+  var d=DIMS[cur];
+  var html='<span class="qnum">Dimension '+(cur+1)+' of '+DIMS.length+'</span><span class="qdim">'+d.k+'</span><div class="qh">'+d.q+'</div><div class="scale">';
+  SCALE.forEach(function(s){
+    var sel=answers[cur]==+s[0]?' sel':'';
+    html+='<button class="sopt'+sel+'" data-v="'+s[0]+'"><span class="dotn">'+s[0]+'</span>'+s[1]+'</button>';
+  });
+  html+='</div>';
+  qhost.innerHTML=html;
+  qhost.querySelectorAll('.sopt').forEach(function(b){
+    b.addEventListener('click',function(){
+      answers[cur]=+b.dataset.v;
+      qhost.querySelectorAll('.sopt').forEach(function(o){o.classList.remove('sel');});
+      b.classList.add('sel');
+      setTimeout(function(){ if(cur<DIMS.length-1){cur++;renderQ();} else {finish();} },220);
+    });
+  });
+  bar.style.width=(cur/DIMS.length*100)+'%';
+  backBtn.disabled=cur===0;
+  qcount.textContent=(cur+1)+' / '+DIMS.length;
+}
+backBtn.addEventListener('click',function(){if(cur>0){cur--;renderQ();}});
+
+function band(n){
+  if(n>=80)return['Thriving','#1d9d6c','#e3f6ee'];
+  if(n>=60)return['Solid','#1565C0','#e7f0fb'];
+  if(n>=40)return['Mixed','#E8940F','#fdf1dd'];
+  return['Needs attention','#c0392b','#fdeaea'];
+}
+function radar(scores){
+  var cx=150,cy=150,R=110,N=scores.length,svg='';
+  // rings
+  [0.25,0.5,0.75,1].forEach(function(r){
+    var pts=[];
+    for(var i=0;i<N;i++){var a=-Math.PI/2+i*2*Math.PI/N;pts.push((cx+Math.cos(a)*R*r).toFixed(1)+','+(cy+Math.sin(a)*R*r).toFixed(1));}
+    svg+='<polygon points="'+pts.join(' ')+'" fill="none" stroke="#e3e9f0" stroke-width="1"/>';
+  });
+  // spokes + labels
+  for(var i=0;i<N;i++){
+    var a=-Math.PI/2+i*2*Math.PI/N;
+    var x=cx+Math.cos(a)*R, y=cy+Math.sin(a)*R;
+    svg+='<line x1="'+cx+'" y1="'+cy+'" x2="'+x.toFixed(1)+'" y2="'+y.toFixed(1)+'" stroke="#eef2f7" stroke-width="1"/>';
+    var lx=cx+Math.cos(a)*(R+16), ly=cy+Math.sin(a)*(R+16);
+    var anchor=Math.abs(Math.cos(a))<0.3?'middle':(Math.cos(a)>0?'start':'end');
+    svg+='<text x="'+lx.toFixed(1)+'" y="'+(ly+3).toFixed(1)+'" font-family="DM Mono, monospace" font-size="8.5" fill="#5b6b7d" text-anchor="'+anchor+'">'+DIMS[i].k+'</text>';
+  }
+  // data polygon
+  var dp=[];
+  for(var i=0;i<N;i++){var a=-Math.PI/2+i*2*Math.PI/N;var r=scores[i]/100;dp.push((cx+Math.cos(a)*R*r).toFixed(1)+','+(cy+Math.sin(a)*R*r).toFixed(1));}
+  svg+='<polygon points="'+dp.join(' ')+'" fill="rgba(232,148,15,.22)" stroke="#E8940F" stroke-width="2"/>';
+  for(var i=0;i<N;i++){var a=-Math.PI/2+i*2*Math.PI/N;var r=scores[i]/100;svg+='<circle cx="'+(cx+Math.cos(a)*R*r).toFixed(1)+'" cy="'+(cy+Math.sin(a)*R*r).toFixed(1)+'" r="3" fill="#E8940F"/>';}
+  document.getElementById('radar').innerHTML=svg;
+}
+function finish(){
+  var scores=answers.map(function(a){return (a||0)/5*100;});
+  var overall=Math.round(scores.reduce(function(s,x){return s+x;},0)/scores.length);
+  document.getElementById('overall').textContent=overall;
+  var b=band(overall);
+  var bandEl=document.getElementById('band');bandEl.textContent=b[0];bandEl.style.color=b[1];bandEl.style.background=b[2];
+  // bars
+  var barsEl=document.getElementById('bars');barsEl.innerHTML='';
+  DIMS.forEach(function(d,i){
+    var sc=Math.round(scores[i]);var bb=band(sc);
+    var row=document.createElement('div');row.className='brow2';
+    row.innerHTML='<span class="bn">'+d.k+'</span><div class="btrack"><div class="bfill" data-w="'+sc+'" style="background:'+bb[1]+'"></div></div><span class="bsc">'+sc+'</span>';
+    barsEl.appendChild(row);
+  });
+  radar(scores);
+  // focus = lowest dimension
+  var lo=0;for(var i=1;i<scores.length;i++){if(scores[i]<scores[lo])lo=i;}
+  var d=DIMS[lo];
+  var rec=d.rec.map(function(r){return '<a href="'+r[1]+'">'+r[0]+' &rarr;</a>';}).join('');
+  document.getElementById('focus').innerHTML='<h3>&#127919; Where to focus first: <span style="color:var(--blue)">'+d.k+'</span></h3><p>You rated <b>'+d.k.toLowerCase()+'</b> lowest. It\'s often the highest-leverage place to start &mdash; a designed experience aimed right at it tends to lift the dimensions around it too. A couple of fits:</p><div class="rec">'+rec+'</div>';
+  bar.style.width='100%';
+  quiz.style.display='none';results.classList.add('show');
+  results.scrollIntoView({behavior:'smooth',block:'start'});
+  setTimeout(function(){document.querySelectorAll('.bfill').forEach(function(f){f.style.width=f.dataset.w+'%';});},120);
+}
+document.getElementById('restart').addEventListener('click',function(){
+  answers=new Array(DIMS.length).fill(null);cur=0;
+  results.classList.remove('show');quiz.style.display='';renderQ();
+  document.querySelector('.toolcard').scrollIntoView({behavior:'smooth',block:'center'});
+});
+renderQ();
+})();
+</script>
+<style id="tb-dropdown">
+.nav{position:static}
+.tb-navitem{position:relative;display:inline-flex;align-items:center}
+.tb-navitem > a .caret{transition:transform .2s}
+.tb-navitem:hover > a .caret{transform:rotate(180deg)}
+.tb-dd{position:absolute;top:100%;left:0;margin-top:2px;background:#fff;border:1px solid var(--line);
+  border-radius:16px;box-shadow:0 30px 70px rgba(13,33,55,.18);padding:22px 24px;
+  display:flex;gap:30px;opacity:0;visibility:hidden;transform:translateY(7px);
+  transition:opacity .18s,transform .18s,visibility .18s;z-index:90}
+.tb-dd::before{content:"";position:absolute;top:-12px;left:0;right:0;height:14px}
+.tb-navitem:hover > .tb-dd,.tb-navitem:focus-within > .tb-dd{opacity:1;visibility:visible;transform:none}
+.tb-dd .col{min-width:172px;display:flex;flex-direction:column}
+.tb-dd .col .h{font-family:var(--mono);font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted-2);margin:0 0 10px;padding:0 6px}
+.tb-dd a{display:block;font-family:var(--body);font-size:.885rem;font-weight:600;color:var(--navy);
+  padding:.42em .55em;border-radius:9px;white-space:nowrap;transition:background .15s,color .15s}
+.tb-dd a:hover{background:var(--blue-soft);color:var(--blue)}
+.tb-dd a.viewall{color:var(--amber);font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.04em;margin-top:6px;text-transform:uppercase}
+.tb-dd a.viewall:hover{background:var(--amber-soft);color:#8a5e0f}
+@media(max-width:1000px){
+  .tb-navitem{display:block;width:100%}
+  .tb-dd{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;
+    border-radius:0;padding:2px 0 10px 12px;margin:0;display:block;background:transparent}
+  .tb-dd::before{display:none}
+  .tb-dd .col{min-width:0;margin-bottom:8px}
+  .tb-dd a{font-size:.88rem;padding:.5em .4em}
+  .tb-navitem:hover > a .caret{transform:none}
+}
+</style>
+<script>
+(function(){
+  var nav=document.getElementById('nav'); if(!nav) return;
+  var M={
+   "what-we-do":[
+     {h:"Team Experiences",all:"team-experiences",links:[["Beam Hunts","team-experiences-beam-hunts"],["Beam Mysteries","team-experiences-beam-mysteries"],["Beam Makers","team-experiences-beam-makers"],["Beam Arena","team-experiences-beam-arena"],["Culinary","team-experiences-culinary"],["Rhythm & Music","team-experiences-rhythm-music"],["High-Action & Tech","team-experiences-high-action-tech"],["Beam Reset","team-experiences-beam-reset"]]},
+     {h:"Development",all:"development-facilitation",links:[["Leadership Training","development-facilitation-leadership-team-training"],["Strategic Workshops","development-facilitation-strategic-workshops"],["Expert Facilitation","development-facilitation-expert-facilitation"],["Assessment-Led","development-facilitation-assessment-led-development"],["Professional Excellence","development-facilitation-professional-excellence"],["Guest Expert","development-facilitation-guest-expert-in-residence"]]},
+     {h:"Offsites & Retreats",all:"offsites-retreats",links:[["Team Programs","offsites-retreats-team-programs"],["Executive Experiences","offsites-retreats-executive-experiences"],["Sales Kickoffs","offsites-retreats-sales-kickoffs"],["All-Hands & Townhalls","offsites-retreats-all-hands-townhalls"],["Milestones","offsites-retreats-milestones-anniversaries"],["Incentive Trips","offsites-retreats-incentive-trips"],["Sourcing & Planning","offsites-retreats-sourcing-planning"]]},
+     {h:"Impact · Platform · Kits",links:[["Impact & CSR","impact-csr"],["The Beam Platform","beam-platform"],["Self-Serve & Kits","self-serve-kits"],["Beam Occasions","beam-occasions"],["Beam Journeys","beam-journeys"],["Delivery Modes","delivery-modes"]]}
+   ],
+   "who-we-serve":[
+     {h:"Industries",all:"who-we-serve",links:[["Technology","who-we-serve-industries-technology"],["Financial Services","who-we-serve-industries-financial-services"],["Healthcare","who-we-serve-industries-healthcare"],["Professional Services","who-we-serve-industries-professional-services"],["Media & Entertainment","who-we-serve-industries-media-entertainment"],["E-commerce & Retail","who-we-serve-industries-ecommerce-retail"],["Manufacturing","who-we-serve-industries-manufacturing"],["Non-Profit","who-we-serve-industries-non-profit"]]},
+     {h:"Roles",links:[["Executives","who-we-serve-roles-executives"],["People & HR","who-we-serve-roles-people-hr"],["Managers","who-we-serve-roles-managers"],["Chiefs of Staff / EAs","who-we-serve-roles-chiefs-of-staff-eas"],["Employees","who-we-serve-roles-employees"]]},
+     {h:"Moments",links:[["Onboarding","who-we-serve-moments-onboarding"],["Annual Retreat","who-we-serve-moments-annual-retreat"],["Sales Kickoff","who-we-serve-moments-sales-kickoff"],["Post-Merger","who-we-serve-moments-post-merger"],["Restructure & Reset","who-we-serve-moments-restructure-reset"],["Burnout Recovery","who-we-serve-moments-burnout-recovery"],["Distributed Connection","who-we-serve-moments-distributed-team-connection"],["Milestone & Anniversary","who-we-serve-moments-milestone-anniversary"]]}
+   ],
+   "destinations":[
+     {h:"Cities",all:"destinations",links:[["SF Bay Area","destinations-sf-bay"],["New York","destinations-nyc"],["Los Angeles","destinations-la"],["Austin","destinations-austin"],["Chicago","destinations-chicago"],["Seattle","destinations-seattle"],["Denver","destinations-denver"],["Boston","destinations-boston"],["Atlanta","destinations-atlanta"],["Washington DC","destinations-dc"]]},
+     {h:"Regions",links:[["West / Pacific","destinations-us-west-pacific"],["Southwest","destinations-us-southwest"],["Mountain West","destinations-us-mountain-west"],["Midwest & Great Lakes","destinations-us-midwest-great-lakes"],["South","destinations-us-south"],["Northeast & New England","destinations-us-northeast-new-england"]]},
+     {h:"Nature & Global",links:[["National Parks","destinations-national-parks"],["Worldwide","destinations-worldwide"]]}
+   ],
+   "why-teambeam":[
+     {h:"Why TeamBeam",all:"why-teambeam",links:[["The Method","why-teambeam-the-method"],["Measurement & Impact","why-teambeam-measurement-impact"],["Results","why-teambeam-results"]]}
+   ],
+   "resources":[
+     {h:"Tools",all:"resources",links:[["Idea Generator","resources-tools-idea-generator"],["Offsite ROI Calculator","resources-tools-offsite-roi-calculator"],["Team Health Snapshot","resources-tools-team-health-snapshot"],["Flight-Hub Finder","resources-tools-flight-hub-finder"]]},
+     {h:"Read & Listen",links:[["Insights","resources-insights"],["Podcast","resources-podcast"]]}
+   ],
+   "about":[
+     {h:"Company",all:"about",links:[["About","about"],["Careers","careers"],["Partnerships","partnerships"],["Volunteer","volunteer"],["Contact","contact"]]}
+   ]
+  };
+  Object.keys(M).forEach(function(key){
+    var a=nav.querySelector('a[href="'+key+'"]'); if(!a) return;
+    var item=document.createElement('span'); item.className='tb-navitem';
+    a.parentNode.insertBefore(item,a); item.appendChild(a);
+    if(!a.querySelector('.caret')){var c=document.createElement('span');c.className='caret';c.innerHTML='&#9662;';a.appendChild(document.createTextNode(' '));a.appendChild(c);}
+    var dd=document.createElement('div'); dd.className='tb-dd';
+    M[key].forEach(function(c){
+      var col=document.createElement('div'); col.className='col';
+      if(c.h){var h=document.createElement('div');h.className='h';h.textContent=c.h;col.appendChild(h);}
+      c.links.forEach(function(l){var x=document.createElement('a');x.href=l[1];x.textContent=l[0];col.appendChild(x);});
+      if(c.all){var v=document.createElement('a');v.className='viewall';v.href=c.all;v.textContent='View all \u2192';col.appendChild(v);}
+      dd.appendChild(col);
+    });
+    item.appendChild(dd);
+    item.addEventListener('mouseenter',function(){
+      dd.style.left='0';dd.style.right='auto';
+      var r=dd.getBoundingClientRect();
+      if(r.right>window.innerWidth-16){dd.style.left='auto';dd.style.right='0';}
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
